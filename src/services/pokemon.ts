@@ -26,11 +26,12 @@ async function getPokemonById(index:number){
 
         const result = await api.get('pokemon/' + index);
 
+        // console.log({result:result.data})
         return result.data;
+
 
     } catch (error) {
 
-        console.log(error)
         return false;
     }
 

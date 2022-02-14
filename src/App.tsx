@@ -1,13 +1,21 @@
 import React from 'react';
-import {Home} from "./pages";
+import { Home, PokemonDetails } from "./pages";
+import { BrowserRouter, Switch,Route } from "react-router-dom"
+
 import './App.css';
 
 
 function App() {
+
   return (
     <div>
 
-      <Home/>
+      <BrowserRouter>
+        <Switch>
+          <Route path="/" exact component={Home}  />
+          <Route path="/pokemon" component={PokemonDetails} />
+        </Switch>
+      </BrowserRouter>
 
     </div>
   );

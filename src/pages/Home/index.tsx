@@ -1,11 +1,14 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
+import { Container } from './style';
 import { Card } from '../../components';
-import { getPokemons } from '../../services/pokemon'
+import { getPokemons } from '../../services/pokemon';
 
 export default function Home() {
   const [isLoading, setIsloading] = useState(true);
   const [pokemonList, setPokemonList] = useState([]);
   const [reloader, reload] = useState(0);
+
 
   const loadPokemon = async () => {
     const pokemons = await getPokemons();
@@ -22,6 +25,8 @@ export default function Home() {
     return;
 
   };
+
+
   useEffect(() => {
     loadPokemon();
 
@@ -35,11 +40,12 @@ export default function Home() {
 
 
   return (
-    <div>
+    <Container>
+
       {pokemonList.map((pokemon, index) => (
-        <Card index={index+1} pokemon={pokemon} />
+        <Card key={index} index={index + 1} pokemon={pokemon}   />
       ))}
 
-    </div>
+    </Container>
   )
 }
