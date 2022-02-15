@@ -1,4 +1,4 @@
-import Home from "./Home"
-import PokemonDetails from "./PokemonDetails";
+import Home from "./Home/Home"
+import PokemonDetails from "./PokemonDetails/PokemonDetails";
 
 export {Home,PokemonDetails};
