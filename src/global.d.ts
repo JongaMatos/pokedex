@@ -1,4 +1,4 @@
-interface IPokemon{
-    name:string
-  }
-  
+interface IPokemon {
+  name: string
+  id?: number
+}

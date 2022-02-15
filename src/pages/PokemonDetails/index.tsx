@@ -46,6 +46,8 @@ export default function PokemonDetails() {
 
     return (
         <div>
+            <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.id}.png`} alt="" />
+            {console.log({pokemon})}
             {pokemon.name}
         </div>
     )
