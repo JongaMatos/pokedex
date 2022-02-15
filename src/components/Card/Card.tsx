@@ -19,7 +19,7 @@ export default function Card({ pokemon }: IProps) {
   return (
     <PokemonCard onClick={() => (handleClick(pokemon.id))}>
       {/* {urlToId(pokemon.url)} */}
-      <PokemonImage src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.id}.png`} alt={pokemon.name} loading='lazy' />
+      <PokemonImage src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.id}.png`} alt={pokemon.name}  />
 
       <PokemonName>
         {pokemon.name}
