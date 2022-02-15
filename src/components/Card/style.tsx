@@ -4,11 +4,11 @@ export const PokemonCard = styled.div`
     display: flex;
     flex-direction: column;
     
-    max-width: 20%;
+    max-width: 12rem;
+    margin-left: 2%;
+    margin-right: 2%;
 
     align-items: center;
-    
-    margin: auto;
 
     margin-bottom: 1em;
     
@@ -17,6 +17,10 @@ export const PokemonCard = styled.div`
     border-color: black;
     border-style: solid;
     border-width: thick;
+
+    &:hover{
+        cursor: pointer;
+    }
 
 `
 
