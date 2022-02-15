@@ -3,6 +3,7 @@ import { useHistory } from 'react-router-dom';
 import { Container } from './style';
 import { Card } from '../../components';
 import { getPokemons } from '../../services/pokemon';
+import { urlToId } from '../../utils';
 
 export default function Home() {
   const [isLoading, setIsloading] = useState(true);
@@ -42,9 +43,10 @@ export default function Home() {
   return (
     <Container>
 
-      {pokemonList.map((pokemon, index) => (
-        <Card key={index} index={index + 1} pokemon={pokemon}   />
-      ))}
+      {pokemonList.map((pokemon:IPokemon) => {
+        {pokemon.id=urlToId(pokemon.url)}
+        return( <Card key={pokemon.name} pokemon={pokemon}   />
+)      })}
 
     </Container>
   )

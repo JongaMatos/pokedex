@@ -1,16 +1,12 @@
 import React from 'react'
 import { useHistory } from 'react-router-dom';
+import { urlToId } from '../../utils';
 import { PokemonCard, PokemonImage, PokemonName } from './style'
 
 interface IProps {
-  index: number;
-
-  pokemon: {
-    name: string,
-    url: string
-  }
+  pokemon: IPokemon
 }
-export default function Card({ index, pokemon }: IProps) {
+export default function Card({ pokemon }: IProps) {
   const history = useHistory()
 
   const handleClick = (id: number) => {
@@ -21,9 +17,9 @@ export default function Card({ index, pokemon }: IProps) {
   }
 
   return (
-    <PokemonCard onClick={()=>(handleClick(index))}>
-
-      <PokemonImage src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${index}.png`} alt={pokemon.name} loading='lazy' />
+    <PokemonCard onClick={() => (handleClick(pokemon.id))}>
+      {/* {urlToId(pokemon.url)} */}
+      <PokemonImage src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.id}.png`} alt={pokemon.name} loading='lazy' />
 
       <PokemonName>
         {pokemon.name}
