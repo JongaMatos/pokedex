@@ -1,7 +1,7 @@
 import React from 'react'
 import { useHistory } from 'react-router-dom';
-import { urlToId } from '../../utils';
-import { PokemonCard, PokemonImage, PokemonName } from './style'
+import { showId, captalize } from '../../utils';
+import { PokemonCard, PokemonImage, PokemonName, PokemonId } from './CardStyles'
 
 interface IProps {
   pokemon: IPokemon
@@ -18,12 +18,16 @@ export default function Card({ pokemon }: IProps) {
 
   return (
     <PokemonCard onClick={() => (handleClick(pokemon.id))}>
-      {/* {urlToId(pokemon.url)} */}
-      <PokemonImage src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.id}.png`} alt={pokemon.name}  />
 
       <PokemonName>
-        {pokemon.name}
+        {captalize(pokemon.name)}
       </PokemonName>
+
+      <PokemonImage src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.id}.png`} alt={pokemon.name} />
+
+      <PokemonId>
+        {showId(pokemon.id)}
+      </PokemonId>
 
     </PokemonCard>
   )

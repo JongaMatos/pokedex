@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { getPokemonById } from '../../services/pokemon'
-import { useQuery, colorByType } from '../../utils';
-import { PokemonContainer, PokemonImage, TopData, Types, Type ,Text} from './style';
+import { useQuery, colorByType, showId, captalize } from '../../utils';
+import { PokemonContainer, PokemonImage, Data,DataText, Types, Type, Text } from './DetailsStyles';
 
 
 
@@ -38,14 +38,6 @@ export default function PokemonDetails() {
         // eslint-disable-next-line
     }, [reloader]);
 
-    const showId = (id: number) => {
-        if (id < 10)
-            return "#00" + id;
-        if (id < 100)
-            return "#0" + id;
-
-        return "#" + id;
-    }
 
     if (isLoading)
         return (
@@ -53,30 +45,31 @@ export default function PokemonDetails() {
         )
 
     return (
-        <PokemonContainer>
-            {console.log({ pokemon })}
-            <TopData>
-                <div>
-                    {pokemon.name}
-                </div>
-                <div>
-                    {showId(pokemon.id)}
-                </div>
-            </TopData>
+        <>
+            <PokemonContainer color={colorByType(pokemon.types[0].type.name)}>
 
-            <PokemonImage src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.id}.png`} alt="" />
+
+                <PokemonImage src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.id}.png`}  alt={pokemon.name} />
+
+                <Data color={colorByType(pokemon.types[0].type.name)}>
+                    <DataText> {captalize(pokemon.name)}</DataText>
+
+                    <DataText>{showId(pokemon.id)}</DataText>
+
+                </Data>
+
+            </PokemonContainer>
 
             <Types>
-
                 {pokemon.types.map((item, index) => (
-                    <Type key={index} color={colorByType(item.type.name)} >
-                        <Text>
-                            {item.type.name}
+
+                    <Type key={index} >
+                        <Text color={colorByType(item.type.name)}>
+                            {captalize(item.type.name)}
                         </Text>
                     </Type>
                 ))}
             </Types>
-
-        </PokemonContainer>
+        </>
     )
 }

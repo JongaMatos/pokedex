@@ -4,6 +4,8 @@ export const PokemonCard = styled.div`
     display: flex;
     flex-direction: column;
     
+    padding: 1%;
+
     max-width: 12rem;
     margin-left: 2%;
     margin-right: 2%;
@@ -16,7 +18,8 @@ export const PokemonCard = styled.div`
 
     border-color: black;
     border-style: solid;
-    border-width: thick;
+    border-width: 3px;
+    border-radius: 10px;
 
     &:hover{
         cursor: pointer;
@@ -30,6 +33,19 @@ export const PokemonImage = styled.img`
 `
 
 export const PokemonName = styled.div`
-    margin-top:5px;
-    margin-bottom: 5px;
+
+    margin-bottom: 0.3rem;
+
+    font-size: large;
+
+    align-self: flex-start;
+
+`
+export const PokemonId= styled.div`
+
+    font-size: medium;
+
+    align-self: flex-end;
+
+
 `

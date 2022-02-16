@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
-import { Container } from './style';
+import { Container } from './HomeStyles';
 import { Card } from '../../components';
 import { getPokemons } from '../../services/pokemon';
 import { urlToId } from '../../utils';

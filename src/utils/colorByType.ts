@@ -36,6 +36,8 @@
             return '#7037FF'
         case 'bug':
             return '#A7B723'
+        default:
+            return '#EFEFEF'
     }
 };
 
