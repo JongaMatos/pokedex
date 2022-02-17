@@ -44,7 +44,9 @@ export default function Home() {
     <Container>
 
       {pokemonList.map((pokemon:IPokemon) => {
-        {pokemon.id=urlToId(pokemon.url)}
+
+        {pokemon.id=urlToId(pokemon.url)}// eslint-disable-line
+        
         return( <Card key={pokemon.name} pokemon={pokemon}   />
 )      })}
 
