@@ -11,4 +11,11 @@ export const Container = styled.button`
     margin: auto;
     margin-top: 1rem;
 
+    @media (max-width: 805px)
+    {
+        width: 99%;
+        justify-content: space-between;
+        
+    }
+
 `
