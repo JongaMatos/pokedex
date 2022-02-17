@@ -12,8 +12,8 @@ function App() {
 
       <BrowserRouter>
         <Switch>
-          <Route path="/" exact component={Home}  />
-          <Route path="/pokemon" component={PokemonDetails} />
+          <Route path="/"  component={Home}  />
+          {/* <Route path="/pokemon" component={PokemonDetails} /> */}
         </Switch>
       </BrowserRouter>
 
