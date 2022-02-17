@@ -12,6 +12,17 @@ async function getPokemons() {
     }
 }
 
+async function getPokemonsPagination(page: number = 1, limit: number = 151) {
+    try {
+        const response = await api.get(`pokemon/?offset=${(page-1)*limit}&limit=${limit}`);
+        return {results:response.data.results,max:response.data.count};
+
+    } catch (error) {
+        return false;
+    }
+}
+
+
 
 
 async function getPokemonById(index: number) {
@@ -24,4 +35,4 @@ async function getPokemonById(index: number) {
     }
 }
 
-export { getPokemonById, getPokemons };
+export { getPokemonById, getPokemons, getPokemonsPagination };

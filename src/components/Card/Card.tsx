@@ -30,8 +30,9 @@ export default function Card({ pokemon }: IProps) {
 
             <Image
                 onLoad={<Loadings.Spinner />}
-                onError={() => { console.log({ error: `Imagem ${pokemon.id} não carregou` }) }}
+                // onError={() => { console.log({ error: `Imagem ${pokemon.id} não carregou` }) }}
                 alt={pokemon.name}
+                fallback={<img src={interrogação} alt="interrogação" style={{width:"100%"}}/>}
 
                 src={[
                     `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.id}.png`,
