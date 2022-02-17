@@ -1,6 +1,6 @@
 import React from 'react'
 // import { useHistory } from 'react-router-dom';
-import { showId, captalize } from '../../utils';
+import { showId, captalize,urlToId } from '../../utils';
 import { PokemonCard, PokemonName, PokemonId,PokemonImage } from './CardStyles'
 // import { Img } from 'react-image'
 
@@ -27,7 +27,7 @@ export default function Card({ pokemon }: IProps) {
         {captalize(pokemon.name)}
       </PokemonName>
 
-      <PokemonImage src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.id}.png`} alt={pokemon.name} />
+      <PokemonImage src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${urlToId(pokemon.url)}.png`} alt={pokemon.name} />
       {/* <Img
         src={
           [`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.id}.png`,

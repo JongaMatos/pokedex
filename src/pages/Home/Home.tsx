@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { Container } from './HomeStyles';
 import { Card } from '../../components';
 import { getPokemons } from '../../services/pokemon';
-import { urlToId } from '../../utils';
+// import { urlToId } from '../../utils';
 
 export default function Home() {
   const [isLoading, setIsloading] = useState(true);
@@ -44,7 +44,7 @@ export default function Home() {
     <Container>
 
       {pokemonList.map((pokemon:IPokemon) => {
-        {pokemon.id=urlToId(pokemon.url)}
+        // {pokemon.id=urlToId(pokemon.url)}
         return( <Card key={pokemon.name} pokemon={pokemon}   />
 )      })}
 
