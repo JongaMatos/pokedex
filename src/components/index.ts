@@ -1,4 +1,5 @@
 import Card from "./Card/Card";
-import ImageLoad from "./ImageLoad/ImageLoad";
+import Image from './Image/Image';
+import Loadings from "./Loadings/Loadings";
 
-export { Card, ImageLoad };
+export { Card, Image, Loadings };
