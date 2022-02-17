@@ -6,7 +6,7 @@ export const PokemonCard = styled.div`
     
     padding: 1%;
 
-    max-width: 12rem;
+    width: 12rem;
     margin-left: 2%;
     margin-right: 2%;
 
@@ -22,7 +22,7 @@ export const PokemonCard = styled.div`
     border-radius: 10px;
 
     &:hover{
-        cursor: pointer;
+        /* cursor: pointer; */
     }
 
 `
