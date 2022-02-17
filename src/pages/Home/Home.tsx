@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useHistory } from 'react-router-dom';
+// import { useHistory } from 'react-router-dom';
 import { Container } from './HomeStyles';
 import { Card } from '../../components';
 import { getPokemons } from '../../services/pokemon';
@@ -7,7 +7,7 @@ import { urlToId } from '../../utils';
 
 export default function Home() {
   const [isLoading, setIsloading] = useState(true);
-  const [pokemonList, setPokemonList] = useState([]);
+  const [pokemonList, setPokemonList] = useState<IPokemon[]>([]);
   const [reloader, reload] = useState(0);
 
 

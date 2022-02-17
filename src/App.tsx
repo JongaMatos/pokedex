@@ -1,5 +1,5 @@
 import React from 'react';
-import { Home, PokemonDetails } from "./pages";
+import { Home } from "./pages";
 import { BrowserRouter, Switch,Route } from "react-router-dom"
 
 import './App.css';
