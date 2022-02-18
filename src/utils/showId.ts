@@ -1,4 +1,4 @@
-const showId = (id: number) => {
+const showId = (id: Number) => {
     if (id < 10)
         return "#00" + id;
     if (id < 100)

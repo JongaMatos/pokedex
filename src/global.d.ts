@@ -1,12 +1,12 @@
 interface IPokemon {
     name: string;
-    id: number;
+    id: Number;
     url: string;
 }
 
 interface IPokemonData {
     name: string;
-    id: number;
+    id: Number;
     url: string;
     types: IType[];
 
@@ -14,7 +14,7 @@ interface IPokemonData {
 }
 
 interface IType {
-    slot: number;
+    slot: Number;
     type: {
         name: string;
         url: string;

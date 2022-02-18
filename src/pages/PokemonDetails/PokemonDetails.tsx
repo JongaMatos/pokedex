@@ -11,7 +11,7 @@ export default function PokemonDetails() {
     const [isLoading, setIsLoading] = useState(true);
     const [pokemon, setPokemon] = useState({} as IPokemonData);
     const [reloader, reload] = useState(0);
-    const query = useQuery();
+    const [query] = useQuery();
 
 
     const loadPokemon = async () => {

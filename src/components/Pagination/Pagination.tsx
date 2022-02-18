@@ -1,19 +1,19 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
 import { PaginationButton, PaginationContainer } from './PaginationStyles';
-import { range } from '../../utils';
+import { range, usePush } from '../../utils';
+import paginationData from '../../Data/paginationAux.json';
 
 interface IProps {
     currentPage: number;
     maxPerPage: number;
     totalItens?: number;
-    refresher: any;
 };
 
-export default function Pagination({ currentPage, totalItens = 1126, maxPerPage, refresher }: IProps) {
+export default function Pagination({ currentPage, totalItens = 1126, maxPerPage }: IProps) {
+    // console.log(paginationData)
+    const push = usePush();
 
-    const amountOfPages = Math.ceil(totalItens / maxPerPage);
-    const history = useHistory();
+    const amountOfPages = Math.ceil(paginationData.totalItens / paginationData.perPage);
 
 
     const paginationRange = (curentPage: number = 1, size: number = 5) => {
@@ -28,21 +28,24 @@ export default function Pagination({ currentPage, totalItens = 1126, maxPerPage,
         return (range(currentPage - paginationTail));
     }
 
-    const handleGoTo = (number: number) => {
-        history.push(`/?page=${number}`)
-        refresher(number);
+    const handleGoTo = (Number: Number) => {
+        if (Number !== currentPage) {
+            push(`/?page=${Number}`)
+            window.location.reload();
+            window.scrollTo(0, 0)
+        }
     }
 
     return (
         <PaginationContainer >
-            {paginationRange(currentPage).map((number) => (
+            {paginationRange(currentPage).map((Number) => (
 
                 <PaginationButton
-                    isCurrentPage={currentPage === number}
-                    key={number}
-                    onClick={() => handleGoTo(number)}
+                    isCurrentPage={currentPage === Number}
+                    key={Number}
+                    onClick={() => handleGoTo(Number)}
                 >
-                    {number}
+                    {Number}
                 </PaginationButton>
 
             ))}
