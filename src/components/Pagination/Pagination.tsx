@@ -30,7 +30,7 @@ export default function Pagination({ currentPage, totalItens = 1126, maxPerPage 
 
     const handleGoTo = (Number: Number) => {
         if (Number !== currentPage) {
-            push(`/?page=${Number}`)
+            push(`/pokedex/?page=${Number}`)
             window.location.reload();
             window.scrollTo(0, 0)
         }
