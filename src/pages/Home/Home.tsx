@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import { Container } from './HomeStyles';
 import { Card, Loadings, Pagination } from '../../components';
 import { urlToId, useApi } from '../../utils';
-
+import { Freeze } from 'react-freeze';
 import paginationData from '../../Data/paginationAux.json';
 
 interface IParams {
@@ -25,9 +25,11 @@ export default function Home() {
   useEffect(() => {
     setPage(page ? parseInt(page) : 1);
   }, [page])
-//Set new url on currentPage change
+  //Set new url on currentPage change
   useEffect(() => {
     NewUrl(`pokemon/?offset=${(currentPage - 1) * perPage}&limit=${perPage}`);
+
+    // eslint-disable-next-line
   }, [currentPage])
 
   //ReFetch api if needed
@@ -42,11 +44,6 @@ export default function Home() {
   }, [isLoading]);
 
 
-  // if (isLoading || (!pokemons && reloadCount < 5))
-  //   return (
-  //     <Loadings.Spinner />
-  //   );
-
   if ((!pokemons && reloadCount >= 5))
     return (
       <div>Deu ruim</div>
@@ -55,7 +52,10 @@ export default function Home() {
   return (
     <>
       {isLoading ? <Loadings.Spinner /> : <></>}
-      <Container>
+      <Freeze freeze={isLoading}>
+      </Freeze>
+
+      <Container isLoading={isLoading}>
         {pokemons && pokemons.results
           .map((pokemon: IPokemon) => {
 
@@ -68,6 +68,7 @@ export default function Home() {
       </Container>
 
       <Pagination
+        isLoading={isLoading}
         currentPage={currentPage}
         maxPerPage={perPage}
       />

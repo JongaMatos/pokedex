@@ -1,13 +1,16 @@
 import styled from "styled-components";
 
-interface IPaginationButton{
-    isCurrentPage:boolean;
+interface IPaginationButton {
+    isCurrentPage: boolean;
+}
+interface IPaginationContainer {
+    isLoading?: boolean;
 }
 
 export const PaginationButton = styled.button<IPaginationButton>`
 
     background-color: #2046F5;
-    /* background-color: ${(props)=>(props.isCurrentPage? "#2046F5":"#2046F5")}; */
+    /* background-color: ${(props) => (props.isCurrentPage ? "#2046F5" : "#2046F5")}; */
     color: #EFEFEF;
     padding-left: 0.5rem;
     padding-right: 0.5rem;
@@ -23,7 +26,8 @@ export const PaginationButton = styled.button<IPaginationButton>`
 
 export const PaginationContainer = styled.div`
 
-    display: flex;
+    /* display: flex; */
+    display: ${({ isLoading }: IPaginationContainer) => (isLoading ? "none" : "flex")};
     width: 30%;
     margin: auto;
 

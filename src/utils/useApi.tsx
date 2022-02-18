@@ -15,7 +15,7 @@ export default function useApi(url: string) {
             const response = await api.get(currentUrl);
             sessionStorage.setItem(currentUrl, JSON.stringify(response.data));
             setLoadedData(response.data);
-            setTimeout(() => { setLoading(false) }, 2000)
+            setTimeout(() => { setLoading(false) }, 900)
 
         } catch (error) {
             setLoadedData(false);
