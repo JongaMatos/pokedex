@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/pokedex/static/css/main.a4de999a.css",
-    "main.js": "/pokedex/static/js/main.7248baed.js",
+    "main.js": "/pokedex/static/js/main.0dc7d4d9.js",
     "static/media/interrogação.jpg": "/pokedex/static/media/interrogação.3847a0d81fe64217a969.jpg",
     "index.html": "/pokedex/index.html",
     "main.a4de999a.css.map": "/pokedex/static/css/main.a4de999a.css.map",
-    "main.7248baed.js.map": "/pokedex/static/js/main.7248baed.js.map"
+    "main.0dc7d4d9.js.map": "/pokedex/static/js/main.0dc7d4d9.js.map"
   },
   "entrypoints": [
     "static/css/main.a4de999a.css",
-    "static/js/main.7248baed.js"
+    "static/js/main.0dc7d4d9.js"
   ]
 }
