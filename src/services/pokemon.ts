@@ -25,7 +25,7 @@ async function getPokemonsPagination(page: number = 1, limit: number = 151) {
 
 
 
-async function getPokemonById(index: number) {
+async function getPokemonById(index: Number) {
     try {
         const result = await api.get('pokemon/' + index);
         return result.data;

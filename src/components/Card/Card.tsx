@@ -13,7 +13,7 @@ interface IProps {
 export default function Card({ pokemon }: IProps) {
     // const push = usePush()
 
-    const handleClick = (id: number) => {
+    const handleClick = (id: Number) => {
         // push(`/pokemon/?id=${id}`);
         return;
 
