@@ -12,8 +12,8 @@ function App() {
 
       <BrowserRouter>
         <Switch>
-          <Route path="/" exact component={Home} />
-          <Route path="/:page" component={Home} />
+          <Route path="/pokedex/" exact component={Home} />
+          <Route path="/pokedex/:page" component={Home} />
 
           {/* <Route path="/pokemon" component={PokemonDetails} /> */}
         </Switch>
