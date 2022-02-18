@@ -6,38 +6,43 @@ import paginationData from '../../Data/paginationAux.json';
 interface IProps {
     currentPage: number;
     maxPerPage: number;
-    totalItens?: number;
+    isLoading?: boolean
 };
 
-export default function Pagination({ currentPage, totalItens = 1126, maxPerPage }: IProps) {
-    // console.log(paginationData)
+export default function Pagination({ currentPage, maxPerPage,isLoading }: IProps) {
     const push = usePush();
+    const { totalItens, perPage } = paginationData;
 
-    const amountOfPages = Math.ceil(paginationData.totalItens / paginationData.perPage);
+
+    const amountOfPages = Math.ceil(totalItens / perPage);
+    const isEven = (amountOfPages % 2 === 0);
 
 
     const paginationRange = (curentPage: number = 1, size: number = 5) => {
-        const paginationTail = Math.floor(size / 2);
+        const maxSize = Math.ceil(totalItens / perPage);
+        if (size > maxSize)
+            size = maxSize;
 
-        if (curentPage <= paginationTail)
-            return range(1);
+        const tail = Math.floor(size / 2);
+        console.log({ Quantia: amountOfPages, Par: isEven, Rabo: tail });
 
-        if (curentPage > amountOfPages - paginationTail)
-            return range(amountOfPages - paginationTail * 2)
+        if (curentPage <= tail)
+            return range(1, size, amountOfPages);
 
-        return (range(currentPage - paginationTail));
+        if (amountOfPages - tail <= curentPage)
+            return range(amountOfPages - tail * 2, size, amountOfPages);
+
+        return (range(currentPage - tail, size, amountOfPages));
     }
 
     const handleGoTo = (Number: Number) => {
         if (Number !== currentPage) {
-            push(`/pokedex/?page=${Number}`)
-            window.location.reload();
-            window.scrollTo(0, 0)
+            push(`/pokedex/${Number}`)
         }
     }
 
     return (
-        <PaginationContainer >
+        <PaginationContainer isLoading={isLoading}>
             {paginationRange(currentPage).map((Number) => (
 
                 <PaginationButton

@@ -1,8 +1,14 @@
 import styled from "styled-components/macro";
 
-export const Container = styled.button`
+interface IContainer {
+    isLoading: boolean
+}
 
-    display: flex;
+
+export const Container = styled.div`
+
+    /* display: flex; */
+    display: ${({ isLoading }: IContainer) => (isLoading ? "none" : "flex")};
     flex-wrap: wrap;
     justify-content: space-evenly;
 
