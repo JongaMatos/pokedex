@@ -51,6 +51,7 @@ export default function Home() {
 
   return (
     <>
+      {setInterval(() => { console.log(currentPage) }, 100)}
       {isLoading ? <Loadings.Spinner /> : <></>}
       <Freeze freeze={isLoading}>
       </Freeze>
