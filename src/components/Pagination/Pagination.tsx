@@ -10,7 +10,6 @@ interface IProps {
 };
 
 export default function Pagination({ currentPage, totalItens = 1126, maxPerPage }: IProps) {
-    // console.log(paginationData)
     const push = usePush();
 
     const amountOfPages = Math.ceil(paginationData.totalItens / paginationData.perPage);
@@ -30,8 +29,10 @@ export default function Pagination({ currentPage, totalItens = 1126, maxPerPage 
 
     const handleGoTo = (Number: Number) => {
         if (Number !== currentPage) {
-            push(`/?page=${Number}`)
-            window.location.reload();
+            // push(`/?page=${Number}`)
+            push(`/${Number}`)
+
+            // window.location.reload();
             window.scrollTo(0, 0)
         }
     }

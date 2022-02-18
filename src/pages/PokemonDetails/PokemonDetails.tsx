@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom';
 import { getPokemonById } from '../../services/pokemon'
-import { useQuery, colorByType, showId, captalize } from '../../utils';
+import {  colorByType, showId, captalize } from '../../utils';
 import { PokemonContainer, PokemonImage, Data, DataText, Types, Type, Text } from './DetailsStyles';
 
-
+interface IParams{
+    id?:string
+}
 
 
 export default function PokemonDetails() {
@@ -11,13 +14,13 @@ export default function PokemonDetails() {
     const [isLoading, setIsLoading] = useState(true);
     const [pokemon, setPokemon] = useState({} as IPokemonData);
     const [reloader, reload] = useState(0);
-    const [query] = useQuery();
+    const{id}:IParams=useParams();
 
 
     const loadPokemon = async () => {
-        if (typeof (query.id) !== "string")
+        if (typeof (id) !== "string")
             return;
-        const result = await getPokemonById(parseInt(query.id))
+        const result = await getPokemonById(parseInt(id))
 
 
         if (!result) {

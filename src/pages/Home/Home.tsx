@@ -1,22 +1,34 @@
 import React, { useState, useEffect } from 'react';
-// import { useHistory } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { Container } from './HomeStyles';
 import { Card, Loadings, Pagination } from '../../components';
-import { urlToId, useQuery, useSessionApi } from '../../utils';
+import { urlToId, useApi } from '../../utils';
 
 import paginationData from '../../Data/paginationAux.json';
 
+interface IParams {
+  page?: string
+}
 
 export default function Home() {
+  const { page }: IParams = useParams();
+  const { perPage } = paginationData;
+
+  const [currentPage, setPage] = useState(page ? parseInt(page) : 1);
 
   const [reloadCount, setReloadCount] = useState(0);
   const count = () => { setReloadCount(reloadCount + 1); }
 
-  const query = useQuery();
-  const getPage = () => ((typeof (query.page) === 'string') ? parseInt(query.page) : 1)
-  const [currentPage] = useState(getPage())
-  const [pokemons, isLoading, Reload] = useSessionApi(`pokemon/?offset=${(currentPage - 1) * paginationData.perPage}&limit=${paginationData.perPage}`)
+  const [pokemons, isLoading, Reload, NewUrl] = useApi(`pokemon/?offset=${(currentPage - 1) * perPage}&limit=${perPage}`)
 
+  //Set current page on param change
+  useEffect(() => {
+    setPage(page ? parseInt(page) : 1);
+  }, [page])
+//Set new url on currentPage change
+  useEffect(() => {
+    NewUrl(`pokemon/?offset=${(currentPage - 1) * perPage}&limit=${perPage}`);
+  }, [currentPage])
 
   //ReFetch api if needed
   useEffect(() => {
@@ -30,21 +42,21 @@ export default function Home() {
   }, [isLoading]);
 
 
-  if (isLoading || (!pokemons && reloadCount < 5))
-    return (
-      <Loadings.Spinner />
-    );
+  // if (isLoading || (!pokemons && reloadCount < 5))
+  //   return (
+  //     <Loadings.Spinner />
+  //   );
 
-  if (!pokemons)
+  if ((!pokemons && reloadCount >= 5))
     return (
       <div>Deu ruim</div>
     )
 
   return (
-
     <>
+      {isLoading ? <Loadings.Spinner /> : <></>}
       <Container>
-        {pokemons.results
+        {pokemons && pokemons.results
           .map((pokemon: IPokemon) => {
 
             { pokemon.id = urlToId(pokemon.url) }// eslint-disable-line
@@ -57,7 +69,7 @@ export default function Home() {
 
       <Pagination
         currentPage={currentPage}
-        maxPerPage={151}
+        maxPerPage={perPage}
       />
 
     </>
