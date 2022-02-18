@@ -12,8 +12,9 @@ function App() {
 
       <BrowserRouter>
         <Switch>
-          <Route path="/pokedex/" exact component={Home} />
-          <Route path="/pokedex/:page" component={Home} />
+
+          <Route path="/pokedex/" exact render={() => <Home />} />
+          <Route path="/pokedex/:page" render={() => <Home />} />
 
           {/* <Route path="/pokemon" component={PokemonDetails} /> */}
         </Switch>
