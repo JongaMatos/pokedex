@@ -1,57 +1,57 @@
 import React, { useState, useEffect } from 'react';
-import { useHistory } from 'react-router-dom';
+// import { useHistory } from 'react-router-dom';
 import { Container } from './HomeStyles';
 import { Card, Loadings, Pagination } from '../../components';
-import { getPokemonsPagination } from '../../services/pokemon';
-import { urlToId, useQuery } from '../../utils';
+import { urlToId, useQuery, useSessionApi } from '../../utils';
 
 export default function Home() {
-  const [isLoading, setIsloading] = useState(true);
-  const [pokemonList, setPokemonList] = useState([]);
-  const [reloader, reload] = useState(0);
 
+  const [pokemons, isLoading, Reload] = useSessionApi("pokemon/?offset=0&limit=30")
+  // const [pokemons, isLoading, Reload] = useSessionApi("robson");
+  const [reloadCount, setReloadCount] = useState(0);
   const query = useQuery();
-  const [currentPage, setCurrentPage] = useState(typeof (query.page) === 'string' ? parseInt(query.page) : 1)
+
+  const count = () => { setReloadCount(reloadCount + 1); }
 
 
-  const loadPokemon = async () => {
 
-    // await getCurrentPage();
-    // console.log({ currentPage });
-    const pokemons = await getPokemonsPagination(currentPage);
-
-    if (!pokemons) {
-      setIsloading(true);
-      reload(reloader + 1);
-      return;
-    }
-
-    setPokemonList(pokemons.results);
-    setIsloading(false);
-    return;
-
-  };
-
+  const getPage = () => ((typeof (query.page) === 'string') ? parseInt(query.page) : 1)
+  const [currentPage, setCurrentPage] = useState(getPage())
 
   useEffect(() => {
-    setIsloading(true);
-    loadPokemon();
+    if (!pokemons && !isLoading)
+      if (reloadCount < 5) {
+        Reload()
+        count();
+        console.log(pokemons);
+      }
 
     // eslint-disable-next-line
-  }, [reloader, currentPage]);
+  }, [isLoading]);
 
-  if (isLoading)
+  useEffect(() => {
+  
+    if (getPage() !== currentPage)
+      setCurrentPage(getPage());
+
+    // eslint-disable-next-line
+  }, [query]);
+
+  if (isLoading || (!pokemons && reloadCount < 5))
     return (
       <Loadings.Spinner />
     );
 
+  if (!pokemons)
+    return (
+      <div>Deu ruim</div>
+    )
 
   return (
     <>
-
       <Container>
 
-        {pokemonList.map((pokemon: IPokemon) => {
+        {pokemons.results.map((pokemon: IPokemon) => {
 
           { pokemon.id = urlToId(pokemon.url) }// eslint-disable-line
 
@@ -63,9 +63,8 @@ export default function Home() {
       <Pagination
         currentPage={currentPage}
         maxPerPage={151}
-        refresher={setCurrentPage}
       />
-      
+
     </>
   )
 }

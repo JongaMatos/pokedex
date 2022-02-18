@@ -1,19 +1,17 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
 import { PaginationButton, PaginationContainer } from './PaginationStyles';
-import { range } from '../../utils';
+import { range, usePush } from '../../utils';
 
 interface IProps {
     currentPage: number;
     maxPerPage: number;
     totalItens?: number;
-    refresher: any;
 };
 
-export default function Pagination({ currentPage, totalItens = 1126, maxPerPage, refresher }: IProps) {
+export default function Pagination({ currentPage, totalItens = 1126, maxPerPage }: IProps) {
+    const push = usePush();
 
     const amountOfPages = Math.ceil(totalItens / maxPerPage);
-    const history = useHistory();
 
 
     const paginationRange = (curentPage: number = 1, size: number = 5) => {
@@ -29,8 +27,7 @@ export default function Pagination({ currentPage, totalItens = 1126, maxPerPage,
     }
 
     const handleGoTo = (number: number) => {
-        history.push(`/?page=${number}`)
-        refresher(number);
+        push(`/?page=${number}`)
     }
 
     return (
