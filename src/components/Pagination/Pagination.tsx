@@ -15,7 +15,7 @@ export default function Pagination({ currentPage, maxPerPage,isLoading }: IProps
 
 
     const amountOfPages = Math.ceil(totalItens / perPage);
-    const isEven = (amountOfPages % 2 === 0);
+    // const isEven = (amountOfPages % 2 === 0);
 
 
     const paginationRange = (curentPage: number = 1, size: number = 5) => {
@@ -24,7 +24,7 @@ export default function Pagination({ currentPage, maxPerPage,isLoading }: IProps
             size = maxSize;
 
         const tail = Math.floor(size / 2);
-        console.log({ Quantia: amountOfPages, Par: isEven, Rabo: tail });
+        // console.log({ Quantia: amountOfPages, Par: isEven, Rabo: tail });
 
         if (curentPage <= tail)
             return range(1, size, amountOfPages);
