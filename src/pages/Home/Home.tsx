@@ -53,7 +53,7 @@ export default function Home() {
 
   return (
     <>
-      {console.log({ currentPage, page })}
+      {/* {console.log({ currentPage, page })} */}
       {isLoading ? <Loadings.Spinner /> : <></>}
       <Freeze freeze={isLoading}>
       </Freeze>

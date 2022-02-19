@@ -9,13 +9,13 @@ interface IProps {
     isLoading?: boolean
 };
 
-export default function Pagination({ currentPage, maxPerPage,isLoading }: IProps) {
+export default function Pagination({ currentPage, maxPerPage, isLoading }: IProps) {
     const push = usePush();
     const { totalItens, perPage } = paginationData;
 
 
     const amountOfPages = Math.ceil(totalItens / perPage);
-    const isEven = (amountOfPages % 2 === 0);
+    // const isEven = (amountOfPages % 2 === 0);
 
 
     const paginationRange = (curentPage: number = 1, size: number = 5) => {
@@ -24,7 +24,7 @@ export default function Pagination({ currentPage, maxPerPage,isLoading }: IProps
             size = maxSize;
 
         const tail = Math.floor(size / 2);
-        console.log({ Quantia: amountOfPages, Par: isEven, Rabo: tail });
+        // console.log({ Quantia: amountOfPages, Par: isEven, Rabo: tail });
 
         if (curentPage <= tail)
             return range(1, size, amountOfPages);
@@ -37,23 +37,26 @@ export default function Pagination({ currentPage, maxPerPage,isLoading }: IProps
 
     const handleGoTo = (Number: Number) => {
         if (Number !== currentPage) {
-            push(`/pokedex/pokemons/${Number}/`)
+            push(`/${Number}/`)
         }
     }
 
     return (
         <PaginationContainer isLoading={isLoading}>
-            {paginationRange(currentPage).map((Number) => (
+            {paginationRange(currentPage)
+                .map((Number) => {
 
-                <PaginationButton
-                    isCurrentPage={currentPage === Number}
-                    key={Number}
-                    onClick={() => handleGoTo(Number)}
-                >
-                    {Number}
-                </PaginationButton>
-
-            ))}
+                    return (
+                        <PaginationButton
+                            // isCurrentPage={currentPage === Number}
+                            key={Number}
+                            onClick={() => handleGoTo(Number)}
+                        >
+                            {Number}
+                        </PaginationButton>
+                    )
+                }
+                )}
 
         </PaginationContainer>
     )
