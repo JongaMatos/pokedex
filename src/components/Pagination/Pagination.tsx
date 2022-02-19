@@ -37,7 +37,7 @@ export default function Pagination({ currentPage, maxPerPage,isLoading }: IProps
 
     const handleGoTo = (Number: Number) => {
         if (Number !== currentPage) {
-            push(`/pokedex/${Number}`)
+            push(`/pokedex/pokemons/${Number}/`)
         }
     }
 

@@ -24,27 +24,13 @@ export default function Home() {
   //Set current page on param change
   useEffect(() => {
     setPage(page ? parseInt(page) : 1);
-    console.log({
-      pageUpdate:
-      {
-        currentPage,
-        page,
-        newUrl: `pokemon/?offset=${(currentPage - 1) * perPage}&limit=${perPage}`
-      }
-    })
+    
     // eslint-disable-next-line
   }, [page])
   //Set new url on currentPage change
   useEffect(() => {
     NewUrl(`pokemon/?offset=${(currentPage - 1) * perPage}&limit=${perPage}`);
-    console.log({
-      currentPageUpdate:
-      {
-        currentPage,
-        page,
-        newUrl: `pokemon/?offset=${(currentPage - 1) * perPage}&limit=${perPage}`
-      }
-    })
+   
     // eslint-disable-next-line
   }, [currentPage])
 

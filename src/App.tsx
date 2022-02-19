@@ -14,7 +14,7 @@ function App() {
         <Switch>
 
           <Route path="/pokedex/" exact render={() => <Home />} />
-          <Route path="/pokedex/:page" render={() => <Home />} />
+          <Route path="/pokedex/pokemons/:page/" render={() => <Home />} />
 
           {/* <Route path="/pokemon" component={PokemonDetails} /> */}
         </Switch>
