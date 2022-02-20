@@ -1,8 +1,9 @@
-import React from 'react'
-import { showId, captalize } from '../../utils';
+import React, { useEffect, useState } from 'react'
+import { showId, captalize, useApi, colorByType } from '../../utils';
 import { PokemonCard, PokemonName, PokemonId } from './CardStyles'
 import { Image, Loadings } from '..'
 import interrogação from '../../assets/interrogação.jpg'
+import { IPokemon } from '../../global';
 
 
 
@@ -10,7 +11,33 @@ import interrogação from '../../assets/interrogação.jpg'
 interface IProps {
     pokemon: IPokemon
 }
+interface IApi {
+    types: [type: string]
+}
 export default function Card({ pokemon }: IProps) {
+    const [apiResult, isLoading, Reload] = useApi(`pokemon/${pokemon.id}`);
+    const [color, setColor] = useState("black");
+
+    useEffect(() => {
+        let cancelled = false
+        if (apiResult && !isLoading) {
+            setColor(colorByType(apiResult.types[0].type.name))
+            // if (pokemon.name === "klinklang")
+            // console.log(color, apiResult.types[0].type.name);
+        }
+        if (!apiResult && !isLoading) {
+            Reload();
+            console.log(`Reloading ${pokemon.name}`)
+        }
+
+        // if (pokemon.id)
+        //     console.log({ result: apiResult, name: pokemon.name });
+        return () => {
+            cancelled = true;
+        };
+    }, [apiResult, isLoading])
+
+
     // const push = usePush()
 
     const handleClick = (id: Number) => {
@@ -19,8 +46,10 @@ export default function Card({ pokemon }: IProps) {
 
     }
 
+
     return (
-        <PokemonCard onClick={() => (handleClick(pokemon.id))}>
+        <PokemonCard color={color} onClick={() => (handleClick(pokemon.id))}>
+
 
             <PokemonName>
                 {captalize(pokemon.name)}

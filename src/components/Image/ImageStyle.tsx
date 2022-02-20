@@ -7,7 +7,8 @@ interface ImgProps {
 
 export const Img = styled.img`
 
-    width: 100%;
+    width: 90%;
+    padding: 5%;
     display: ${({ isLoading }: ImgProps) => (isLoading ? "none" : "block")};
 
 `

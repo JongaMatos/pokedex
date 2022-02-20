@@ -1,4 +1,5 @@
- const colorByType = (type: string) => {
+const colorByType = (type: string) => {
+    
     switch (type) {
         case 'grass':
             return '#74CB48'
@@ -32,8 +33,10 @@
             return '#F9CF30'
         case 'fairy':
             return '#E69EAC'
-        case 'dragon':
+        case 'dragon': {
+
             return '#7037FF'
+        }
         case 'bug':
             return '#A7B723'
         default:

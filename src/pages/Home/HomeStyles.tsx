@@ -11,7 +11,6 @@ export const Container = styled.div`
     display: ${({ isLoading }: IContainer) => (isLoading ? "none" : "flex")};
     flex-wrap: wrap;
     justify-content: space-evenly;
-
     width: 90%;
    
     margin: auto;

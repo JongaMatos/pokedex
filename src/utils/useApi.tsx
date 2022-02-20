@@ -3,7 +3,7 @@ import api from '../services/api';
 
 
 
-export default function useApi(url: string) {
+export default function useApi(url: string,time:number=0) {
     const [loadedData, setLoadedData] = useState<any>(false);
     const [currentUrl, setUrl] = useState(url);
     const [loading, setLoading] = useState(true);
@@ -13,11 +13,12 @@ export default function useApi(url: string) {
         setLoading(true);
         try {
             const response = await api.get(currentUrl);
-            sessionStorage.setItem(currentUrl, JSON.stringify(response.data));
+            // sessionStorage.setItem(currentUrl, JSON.stringify(response.data));
             setLoadedData(response.data);
-            setTimeout(() => { setLoading(false) }, 900)
+            setTimeout(() => { setLoading(false) }, time)
 
         } catch (error) {
+            // console.log({error})
             setLoadedData(false);
             setLoading(false);
         }
@@ -25,7 +26,10 @@ export default function useApi(url: string) {
     }
 
     useEffect(() => {
+        let canceled = false;
         FetchData();
+
+        return () => { canceled = true; }
         // eslint-disable-next-line
     }, [currentUrl])
 

@@ -16,7 +16,7 @@ export default function Home({ page }: IProps) {
   const [reloadCount, setReloadCount] = useState(0);
   const count = () => { setReloadCount(reloadCount + 1); }
 
-  const [pokemons, isLoading, Reload, NewUrl] = useApi(`pokemon/?offset=${page - 1 * perPage}&limit=${perPage}`)
+  const [pokemons, isLoading, Reload, NewUrl] = useApi(`pokemon/?offset=${page - 1 * perPage}&limit=${perPage}`, perPage * 9)
 
   useEffect(() => {
     NewUrl(`pokemon/?offset=${(page - 1) * perPage}&limit=${perPage}`);
@@ -44,7 +44,7 @@ export default function Home({ page }: IProps) {
   return (
     <>
       {isLoading ? <Loadings.Spinner /> : <></>}
-    
+
       <Container isLoading={isLoading}>
         {pokemons && pokemons.results
           .map((pokemon: IPokemon) => {
