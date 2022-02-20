@@ -8,7 +8,7 @@ interface IProps {
 export default function Router({ children }: IProps) {
     return (
         
-        <BrowserRouter>
+        <BrowserRouter forceRefresh={true}>
 
             <Route path='/' render={() => (
 

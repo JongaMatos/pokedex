@@ -1,3 +1,5 @@
+import {RouteComponentProps} from 'react-router-dom';
+
 interface IPokemon {
     name: string;
     id: Number;
@@ -20,3 +22,10 @@ interface IType {
         url: string;
     };
 }
+
+interface RouteInfo {
+    page?: string;
+}
+
+
+
