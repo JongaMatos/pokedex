@@ -1,5 +1,6 @@
 import React from 'react'
 import { BrowserRouter, HashRouter, Route } from 'react-router-dom'
+import Navbar from './components/Navbar/Navbar'
 
 interface IProps {
     children: JSX.IntrinsicAttributes & React.ReactNode
@@ -7,12 +8,12 @@ interface IProps {
 
 export default function Router({ children }: IProps) {
     return (
-        
-        <BrowserRouter forceRefresh={true}>
+
+        <BrowserRouter >
 
             <Route path='/' render={() => (
-
-                <HashRouter hashType='slash' basename='/'>
+                <HashRouter hashType='hashbang' basename='/'>
+                    <Navbar />
                     {children}
                 </HashRouter>
 

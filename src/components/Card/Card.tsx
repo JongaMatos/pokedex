@@ -11,15 +11,13 @@ import { IPokemon } from '../../global';
 interface IProps {
     pokemon: IPokemon
 }
-interface IApi {
-    types: [type: string]
-}
+
 export default function Card({ pokemon }: IProps) {
     const [apiResult, isLoading, Reload] = useApi(`pokemon/${pokemon.id}`);
     const [color, setColor] = useState("black");
 
     useEffect(() => {
-        let cancelled = false
+
         if (apiResult && !isLoading) {
             setColor(colorByType(apiResult.types[0].type.name))
             // if (pokemon.name === "klinklang")
@@ -27,14 +25,13 @@ export default function Card({ pokemon }: IProps) {
         }
         if (!apiResult && !isLoading) {
             Reload();
-            console.log(`Reloading ${pokemon.name}`)
+            // console.log(`Reloading ${pokemon.name}`)
         }
 
         // if (pokemon.id)
         //     console.log({ result: apiResult, name: pokemon.name });
-        return () => {
-            cancelled = true;
-        };
+        return () => { };    
+        // eslint-disable-next-line
     }, [apiResult, isLoading])
 
 

@@ -37,7 +37,7 @@ export default function Pagination({ currentPage, maxPerPage,isLoading }: IProps
 
     const handleGoTo = (Number: Number) => {
         if (Number !== currentPage) {
-            push(`/${Number}`)
+            push(`/pokemons/${Number}`)
         }
     }
 

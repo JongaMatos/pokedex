@@ -26,10 +26,9 @@ export default function useApi(url: string,time:number=0) {
     }
 
     useEffect(() => {
-        let canceled = false;
         FetchData();
 
-        return () => { canceled = true; }
+        return () => {  }
         // eslint-disable-next-line
     }, [currentUrl])
 

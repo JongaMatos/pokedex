@@ -1,6 +1,6 @@
 import React from 'react';
 import { Home } from "./pages";
-import { Switch, Route, useParams, RouteComponentProps } from "react-router-dom"
+import { Switch, Route, RouteComponentProps } from "react-router-dom"
 
 import './App.css';
 
@@ -14,12 +14,16 @@ function App() {
 
   return (
     <Switch>
-      <Route path="/:page" render={(props: RouteComponentProps<IRouteInfo>) => {
+      <Route path="/" exact render={() => <div>Home</div>} />
+      <Route path="/Types"  render={() => <div>Tipos</div>} />
+
+
+      <Route path="/pokemons/" exact render={() => <Home page={1}/>} />
+      <Route path="/pokemons/:page" render={(props: RouteComponentProps<IRouteInfo>) => {
 
         const { page } = props.match.params
         return <Home page={parseInt(page)} />
       }} />
-      <Route path="/" render={() => <Home page={1} />} />
 
       {/* <Route path="/pokemon" component={PokemonDetails} /> */}
     </Switch>
