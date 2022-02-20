@@ -7,8 +7,8 @@ interface IProps {
 
 export default function Router({ children }: IProps) {
     return (
-
-        <BrowserRouter>
+        
+        <BrowserRouter >
 
             <Route path='/pokedex/' render={() => (
 

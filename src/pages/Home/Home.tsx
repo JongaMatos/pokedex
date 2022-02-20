@@ -1,38 +1,28 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
 import { Container } from './HomeStyles';
 import { Card, Loadings, Pagination } from '../../components';
 import { urlToId, useApi } from '../../utils';
-import { Freeze } from 'react-freeze';
 import paginationData from '../../Data/paginationAux.json';
+import { IPokemon } from '../../global';
 
-interface IParams {
-  page?: string
+interface IProps {
+  page: number
 }
 
-export default function Home() {
-  const { page }: IParams = useParams();
-  const { perPage } = paginationData;
+export default function Home({ page }: IProps) {
 
-  const [currentPage, setPage] = useState(page ? parseInt(page) : 1);
+  const { perPage } = paginationData;
 
   const [reloadCount, setReloadCount] = useState(0);
   const count = () => { setReloadCount(reloadCount + 1); }
 
-  const [pokemons, isLoading, Reload, NewUrl] = useApi(`pokemon/?offset=${(currentPage - 1) * perPage}&limit=${perPage}`)
+  const [pokemons, isLoading, Reload, NewUrl] = useApi(`pokemon/?offset=${page - 1 * perPage}&limit=${perPage}`, perPage * 9)
 
-  //Set current page on param change
   useEffect(() => {
-    setPage(page ? parseInt(page) : 1);
-    
+    NewUrl(`pokemon/?offset=${(page - 1) * perPage}&limit=${perPage}`);
+
     // eslint-disable-next-line
   }, [page])
-  //Set new url on currentPage change
-  useEffect(() => {
-    NewUrl(`pokemon/?offset=${(currentPage - 1) * perPage}&limit=${perPage}`);
-   
-    // eslint-disable-next-line
-  }, [currentPage])
 
   //ReFetch api if needed
   useEffect(() => {
@@ -55,8 +45,6 @@ export default function Home() {
     <>
       {/* {console.log({ currentPage, page })} */}
       {isLoading ? <Loadings.Spinner /> : <></>}
-      <Freeze freeze={isLoading}>
-      </Freeze>
 
       <Container isLoading={isLoading}>
         {pokemons && pokemons.results
@@ -72,7 +60,7 @@ export default function Home() {
 
       <Pagination
         isLoading={isLoading}
-        currentPage={currentPage}
+        currentPage={page}
         maxPerPage={perPage}
       />
 

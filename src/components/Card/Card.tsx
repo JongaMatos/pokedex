@@ -1,9 +1,9 @@
-import React from 'react'
-// import { useHistory } from 'react-router-dom';
-import { showId, captalize } from '../../utils';
+import React, { useEffect, useState } from 'react'
+import { showId, captalize, useApi, colorByType } from '../../utils';
 import { PokemonCard, PokemonName, PokemonId } from './CardStyles'
 import { Image, Loadings } from '..'
 import interrogação from '../../assets/interrogação.jpg'
+import { IPokemon } from '../../global';
 
 
 
@@ -11,8 +11,33 @@ import interrogação from '../../assets/interrogação.jpg'
 interface IProps {
     pokemon: IPokemon
 }
+
 export default function Card({ pokemon }: IProps) {
-    // const history = useHistory()
+    const [apiResult, isLoading, Reload] = useApi(`pokemon/${pokemon.id}`);
+    const [color, setColor] = useState("black");
+
+    useEffect(() => {
+        // eslint-disable-next-line
+        let cancelled = false
+        if (apiResult && !isLoading) {
+            setColor(colorByType(apiResult.types[0].type.name))
+
+        }
+        if (!apiResult && !isLoading) {
+            Reload();
+            console.log(`Reloading ${pokemon.name}`)
+        }
+
+
+        return () => {
+            // eslint-disable-next-line
+            cancelled = true;
+        };
+            // eslint-disable-next-line
+    }, [apiResult, isLoading])
+
+
+    // const push = usePush()
 
     const handleClick = (id: Number) => {
         // push(`/pokemon/?id=${id}`);
@@ -20,8 +45,10 @@ export default function Card({ pokemon }: IProps) {
 
     }
 
+
     return (
-        <PokemonCard onClick={() => (handleClick(pokemon.id))}>
+        <PokemonCard color={color} onClick={() => (handleClick(pokemon.id))}>
+
 
             <PokemonName>
                 {captalize(pokemon.name)}

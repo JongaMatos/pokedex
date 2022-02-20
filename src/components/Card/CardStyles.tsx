@@ -1,4 +1,5 @@
 import styled from "styled-components/macro";
+// import { colorByType } from "../../utils";
 
 export const PokemonCard = styled.div`
 
@@ -12,7 +13,8 @@ export const PokemonCard = styled.div`
     margin-bottom: 1em;
     padding: 1%;
 
-    border-color: black;
+    border-color: #EFEFEF;
+    background-color: ${(props) => (props.color)};
     border-style: solid;
     border-width: 3px;
     border-radius: 10px;
@@ -35,14 +37,17 @@ export const PokemonCard = styled.div`
 `
 
 export const PokemonImage = styled.img`
+    /* background-color: inherit; */
 
     max-width: 100%;
     
 `
 
 export const PokemonName = styled.div`
-
+    background-color: inherit;
+    color: white;
     font-size: large;
+    font-weight: bold;
 
     align-self: flex-start;
 
@@ -57,6 +62,8 @@ export const PokemonName = styled.div`
 
 `
 export const PokemonId = styled.div`
+    background-color: inherit;
+    color: #EFEFEF;
 
     font-size: medium;
 
