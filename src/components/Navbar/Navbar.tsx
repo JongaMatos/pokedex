@@ -1,14 +1,43 @@
-import React from 'react'
-import { Container, Link, Logo, LinkContainer } from './NavbarStyles'
+import React, { useState } from 'react'
+import { Container, Link, Logo, LinkContainer, About, Hamburguer, CloseDropdownButton } from './NavbarStyles'
+
 
 export default function Navbar() {
+
+  const [hamburgerClick, setHamburguerClick] = useState(false);
+
+  const handleHamburgerClick = () => {
+    setHamburguerClick(!hamburgerClick);
+    console.log({ hamburgerClick })
+    // return hamburgerClick;
+  }
+  const close = () => {
+    if (hamburgerClick)
+      setHamburguerClick(false);
+  }
+
   return (
     <Container >
       <Logo to="/">Pokedex</Logo>
-      <LinkContainer>
-        <Link to="/pokemons/"> Pokemons</Link>
-        <Link to="/types/">Tipos</Link>
+      <LinkContainer isopen={hamburgerClick}>
+        {/* <div onClick={handleHamburgerClick}>
+        </div>x */}
+        <CloseDropdownButton isopen={hamburgerClick} onClick={() => { close() }} />
+
+        <Link to="/types/" onClick={close}>Tipos</Link>
+
+        <Link to="/pokemons/" onClick={close}> Pokemons</Link>
+
+        <About
+          href="https://github.com/JongaMatos/pokedex/blob/main/README.md"
+          target='_blank'
+          onClick={close} >
+          Sobre
+        </About>
+
       </LinkContainer>
+      <Hamburguer isopen={hamburgerClick} onClick={handleHamburgerClick} />
+      {/* <Dropdown isOpen={hamburgerClick} close={handleHamburgerClick} /> */}
     </Container>
   )
 }

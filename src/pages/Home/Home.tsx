@@ -10,9 +10,8 @@ interface IProps {
 }
 
 export default function Home({ page }: IProps) {
-
+  
   const { perPage } = paginationData;
-
   const [reloadCount, setReloadCount] = useState(0);
   const count = () => { setReloadCount(reloadCount + 1); }
 
