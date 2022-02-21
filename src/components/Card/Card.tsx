@@ -17,23 +17,19 @@ export default function Card({ pokemon }: IProps) {
     const [color, setColor] = useState("black");
 
     useEffect(() => {
-        // eslint-disable-next-line
-        let cancelled = false
         if (apiResult && !isLoading) {
             setColor(colorByType(apiResult.types[0].type.name))
 
         }
         if (!apiResult && !isLoading) {
             Reload();
-            console.log(`Reloading ${pokemon.name}`)
+            // console.log(`Reloading ${pokemon.name}`)
         }
 
-
-        return () => {
-            // eslint-disable-next-line
-            cancelled = true;
-        };
-            // eslint-disable-next-line
+        // if (pokemon.id)
+        //     console.log({ result: apiResult, name: pokemon.name });
+        return () => { };    
+        // eslint-disable-next-line
     }, [apiResult, isLoading])
 
 

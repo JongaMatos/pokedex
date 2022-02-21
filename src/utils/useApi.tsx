@@ -29,13 +29,9 @@ export default function useApi(url: string, time: number = 0) {
     }
 
     useEffect(() => {
-        let canceled = false;// eslint-disable-line
         FetchData();
 
-        return () => {
-            controller.abort();
-            canceled = true;  // eslint-disable-line 
-        }
+        return () => {  }
         // eslint-disable-next-line
     }, [currentUrl])
 

@@ -1,5 +1,4 @@
 import styled from "styled-components/macro";
-// import { colorByType } from "../../utils";
 
 export const PokemonCard = styled.div`
 
