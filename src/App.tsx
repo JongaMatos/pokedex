@@ -1,28 +1,36 @@
 import React from 'react';
-import { Home, Types } from "./pages";
+import { Home, UnderConstruction } from "./pages";
 import { Switch, Route, RouteComponentProps } from "react-router-dom"
+import { useApi } from './utils';
+import { Loadings } from './components';
 
 import './App.css';
 
 interface IRouteInfo {
-
   page: string;
 }
 
 function App() {
-
+  const [response] = useApi("pokemon/?offset=0&limit=100000");
 
   return (
     <Switch>
-      <Route path="/" exact render={() => <Home page={1} />} />
-      <Route path="/Types" render={() => <Types />} />
+      <Route path="/" exact render={() => <UnderConstruction />} />
+      <Route path="/Types" render={() => <UnderConstruction />} />
 
 
-      <Route path="/pokemons/" exact render={() => <Home page={1} />} />
+      <Route path="/pokemons/" exact render={() => {
+        if (response)
+          return <Home count={response.count} pokemons={response.pokemons} page={1} />
+        return <Loadings.Spinner />
+      }} />
       <Route path="/pokemons/:page" render={(props: RouteComponentProps<IRouteInfo>) => {
 
         const { page } = props.match.params
-        return <Home page={parseInt(page)} />
+        if (response)
+          return <Home count={response.count} pokemons={response.results} page={parseInt(page)} />
+
+        return <Loadings.Spinner />
       }} />
 
       {/* <Route path="/pokemon" component={PokemonDetails} /> */}

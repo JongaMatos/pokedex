@@ -1,67 +1,54 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Container } from './HomeStyles';
 import { Card, Loadings, Pagination } from '../../components';
-import { urlToId, useApi } from '../../utils';
-import paginationData from '../../Data/paginationAux.json';
+import { urlToId } from '../../utils';
 import { IPokemon } from '../../global';
 
 interface IProps {
-  page: number
+    page: number;
+    pokemons: IPokemon[];
+    count: number;
 }
 
-export default function Home({ page }: IProps) {
-  
-  const { perPage } = paginationData;
-  const [reloadCount, setReloadCount] = useState(0);
-  const count = () => { setReloadCount(reloadCount + 1); }
+export default function Home({ page, pokemons, count }: IProps) {
+    const [isLoading, setIsLoading] = useState(true);
+    const perPage = 60;
 
-  const [pokemons, isLoading, Reload, NewUrl] = useApi(`pokemon/?offset=${page - 1 * perPage}&limit=${perPage}`, perPage * 9)
+    const setLoaded = setTimeout(() => { setIsLoading(false) }, perPage * 11)
 
-  useEffect(() => {
-    NewUrl(`pokemon/?offset=${(page - 1) * perPage}&limit=${perPage}`);
-
-    // eslint-disable-next-line
-  }, [page])
-
-  //ReFetch api if needed
-  useEffect(() => {
-    if (!pokemons && !isLoading)
-      if (reloadCount < 5) {
-        Reload()
-        count();
-      }
-
-    // eslint-disable-next-line
-  }, [isLoading]);
-
-
-  if ((!pokemons && reloadCount >= 5))
-    return (
-      <div>Deu ruim</div>
-    )
-
-  return (
-    <>
-      {isLoading ? <Loadings.Spinner /> : <></>}
-
-      <Container isLoading={isLoading}>
-        {pokemons && pokemons.results
-          .map((pokemon: IPokemon) => {
-
-            { pokemon.id = urlToId(pokemon.url) }// eslint-disable-line
-
-            return (<Card key={pokemon.name} pokemon={pokemon} />
-            )
-          })
+    useEffect(() => {
+        return () => {
+            clearTimeout(setLoaded);
         }
-      </Container>
+        // eslint-disable-next-line
+    }, [])
 
-      <Pagination
-        isLoading={isLoading}
-        currentPage={page}
-        maxPerPage={perPage}
-      />
 
-    </>
-  )
+    return (
+        <>
+            {isLoading && <Loadings.Spinner />}
+
+            <Container isLoading={isLoading}>
+                {pokemons
+                    .filter((pokemon: IPokemon, index: number) => (index >= (page - 1) * perPage && index < page * perPage))
+                    .map((pokemon: IPokemon) => {
+
+                        { pokemon.id = urlToId(pokemon.url) }// eslint-disable-line
+
+                        return (<Card key={pokemon.name} pokemon={pokemon} />
+                        )
+                    })
+                }
+            </Container>
+
+            <Pagination
+                isLoading={isLoading}
+                setIsLoading={setIsLoading}
+                currentPage={page}
+                count={count}
+                maxPerPage={perPage}
+            />
+
+        </>
+    )
 }

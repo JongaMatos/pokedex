@@ -1,5 +1,5 @@
 import Home from "./Home/Home"
 import PokemonDetails from "./PokemonDetails/PokemonDetails";
-import Types from "./Types/Types";
+import UnderConstruction from "./UnderConstruction/UnderConstruction";
 
-export {Home,PokemonDetails,Types};
+export {Home,PokemonDetails,UnderConstruction};
