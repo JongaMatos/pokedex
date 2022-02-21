@@ -16,12 +16,11 @@ export default function useApi(url: string, time: number = 0) {
         setLoading(true);
         try {
             const response = await api.get(currentUrl, { signal: controller.signal });
-            // sessionStorage.setItem(currentUrl, JSON.stringify(response.data));
+
             setLoadedData(response.data);
             setTimeout(() => { setLoading(false) }, time)
 
         } catch (error) {
-            // console.log({error})
             setLoadedData(false);
             setLoading(false);
         }
@@ -31,9 +30,10 @@ export default function useApi(url: string, time: number = 0) {
     useEffect(() => {
         FetchData();
 
-        return () => {  }
+        return () => { }
         // eslint-disable-next-line
     }, [currentUrl])
+
 
 
 

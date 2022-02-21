@@ -20,8 +20,9 @@ function App() {
 
 
       <Route path="/pokemons/" exact render={() => {
-        if (response)
-          return <Home count={response.count} pokemons={response.pokemons} page={1} />
+
+        if (response) { }
+        return <Home count={response.count} pokemons={response.results} page={1} />
         return <Loadings.Spinner />
       }} />
       <Route path="/pokemons/:page" render={(props: RouteComponentProps<IRouteInfo>) => {

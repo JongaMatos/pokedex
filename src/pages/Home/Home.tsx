@@ -29,7 +29,7 @@ export default function Home({ page, pokemons, count }: IProps) {
             {isLoading && <Loadings.Spinner />}
 
             <Container isLoading={isLoading}>
-                {pokemons
+                {pokemons && pokemons
                     .filter((pokemon: IPokemon, index: number) => (index >= (page - 1) * perPage && index < page * perPage))
                     .map((pokemon: IPokemon) => {
 
