@@ -26,7 +26,6 @@ export default function PaginationBar({ currentPage, maxPerPage, isLoading, setI
             size = maxSize;
 
         const tail = Math.floor(size / 2);
-        // console.log({ Quantia: amountOfPages, Par: isEven, Rabo: tail });
 
         if (curentPage <= tail)
             return range(1, size, amountOfPages);
@@ -40,7 +39,6 @@ export default function PaginationBar({ currentPage, maxPerPage, isLoading, setI
     const handleGoTo = (Number: Number) => {
         if (currentPage === Number)
             return;
-        console.log({ cuurentPage: Number })
         setIsLoading(true);
 
         if (filter === "none") {

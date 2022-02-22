@@ -4,13 +4,18 @@ import { getPokemonByName } from '../services/pokemon';
 import { useApi } from '../utils';
 
 
+interface ISType {
+    name: string;
+}
+
 interface LoadPokemonProviderProps {
     children: ReactNode;
 }
 
 interface LoadPokemonData {
     detailedPokemons: false | IPokemonData[];
-    filterPokemonByType: (filterType: string) => ({filteredPokemon: IPokemonData[], length: number});
+    loadedTypes: false | string[];
+    filterPokemonByType: (filterType: string) => ({ filteredPokemon: IPokemonData[], length: number });
 
 }
 
@@ -35,7 +40,7 @@ export const LoadPokemonProvider = ({ children }: LoadPokemonProviderProps) => {
 
     const filterPokemonByType = (filterType: string) => {
         if (!detailedPokemons)
-            return ({filteredPokemon:[], length:0})
+            return ({ filteredPokemon: [], length: 0 })
 
         const filteredPokemon: IPokemonData[] = detailedPokemons.filter((pokemon: IPokemonData) => {
             return pokemon.types.some((value) => {
@@ -44,16 +49,29 @@ export const LoadPokemonProvider = ({ children }: LoadPokemonProviderProps) => {
         })
         const length = filteredPokemon.length;
 
-        return ({filteredPokemon, length})
-
+        return ({ filteredPokemon, length })
 
     }
+
+    const [allTypes] = useApi("https://pokeapi.co/api/v2/type/?limit=50")
+    const [loadedTypes, setLoadedTypes] = useState<false | string[]>(false);
+
+    useEffect(() => {
+
+        if (!loadedTypes && allTypes)
+            setLoadedTypes(allTypes.results
+                .map((type: ISType) => type.name)
+                .filter((type: string) => type !== 'shadow' && type !== 'unknown')
+            )
+
+    }, [loadedTypes, allTypes])
 
 
     return (
         <LoadPokemonContext.Provider value={{
             detailedPokemons,
-            filterPokemonByType
+            filterPokemonByType,
+            loadedTypes,
         }}>
             {children}
         </LoadPokemonContext.Provider>

@@ -27,7 +27,6 @@ export default function ListPokemons({ page, pokemons, count, filter }: IProps) 
 
     return (
         <>
-            {console.log({ page })}
             {isLoading && <Loadings.Spinner />}
 
             <Container isLoading={isLoading}>

@@ -8,7 +8,7 @@ export default function Navbar() {
 
   const handleHamburgerClick = () => {
     setHamburguerClick(!hamburgerClick);
-    console.log({ hamburgerClick })
+    // console.log({ hamburgerClick })
     // return hamburgerClick;
   }
   const close = () => {
