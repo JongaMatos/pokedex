@@ -4,7 +4,6 @@ import pikachu from '../../assets/pikachu-home.png'
 
 export default function Home() {
 
-    const Space = () => (<>&nbsp;&nbsp;&nbsp;&nbsp;</>)
     return (
         <Container>
             <Header>

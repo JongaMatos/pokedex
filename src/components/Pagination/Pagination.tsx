@@ -8,9 +8,10 @@ interface IProps {
     isLoading?: boolean
     setIsLoading: Dispatch<SetStateAction<boolean>>;
     count: number;
+    filter: string
 };
 
-export default function Pagination({ currentPage, maxPerPage, isLoading, setIsLoading, count }: IProps) {
+export default function Pagination({ currentPage, maxPerPage, isLoading, setIsLoading, count, filter }: IProps) {
     const push = usePush();
     // const { count, perPage } = paginationData;
 
@@ -37,10 +38,18 @@ export default function Pagination({ currentPage, maxPerPage, isLoading, setIsLo
     }
 
     const handleGoTo = (Number: Number) => {
-        if (Number !== currentPage) {
-            setIsLoading(true);
-            push(`/pokemons/${Number}`)
+        console.log({ cuurentPage: Number })
+        setIsLoading(true);
+
+        if (filter === "none") {
+            push(`/pokemons/${Number}`);
+            return;
         }
+        push(`/type/${filter}/${Number}`);
+        return;
+
+
+
     }
 
     return (

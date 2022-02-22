@@ -20,11 +20,10 @@ export default function Navbar() {
     <Container >
       <Logo to="/">Pokedex</Logo>
       <LinkContainer isopen={hamburgerClick}>
-        {/* <div onClick={handleHamburgerClick}>
-        </div>x */}
+       
         <CloseDropdownButton isopen={hamburgerClick} onClick={() => { close() }} />
 
-        <Link to="/types/" onClick={close}>Tipos</Link>
+        <Link to="/type/" onClick={close}>Tipos</Link>
 
         <Link to="/pokemons/" onClick={close}> Pokemons</Link>
 
@@ -37,7 +36,6 @@ export default function Navbar() {
 
       </LinkContainer>
       <Hamburguer isopen={hamburgerClick} onClick={handleHamburgerClick} />
-      {/* <Dropdown isOpen={hamburgerClick} close={handleHamburgerClick} /> */}
     </Container>
   )
 }
