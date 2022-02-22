@@ -38,6 +38,8 @@ export default function PaginationBar({ currentPage, maxPerPage, isLoading, setI
     }
 
     const handleGoTo = (Number: Number) => {
+        if (currentPage === Number)
+            return;
         console.log({ cuurentPage: Number })
         setIsLoading(true);
 
