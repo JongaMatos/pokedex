@@ -14,7 +14,7 @@ export default function Home({ page, pokemons, count }: IProps) {
     const [isLoading, setIsLoading] = useState(true);
     const perPage = 60;
 
-    const setLoaded = setTimeout(() => { setIsLoading(false) }, perPage * 11)
+    const setLoaded = setTimeout(() => { setIsLoading(false) }, perPage * 30)
 
     useEffect(() => {
         return () => {
