@@ -1,54 +1,23 @@
-import React, { useEffect, useState } from 'react';
-import { Container } from './HomeStyles';
-import { Card, Loadings, Pagination } from '../../components';
-import { urlToId } from '../../utils';
-import { IPokemon } from '../../global';
+import React from 'react'
+import { Container, Header, Pikachu, Text, Button } from './HomeStyles'
+import pikachu from '../../assets/pikachu-home.png'
 
-interface IProps {
-    page: number;
-    pokemons: IPokemon[];
-    count: number;
-}
+export default function Home() {
 
-export default function Home({ page, pokemons, count }: IProps) {
-    const [isLoading, setIsLoading] = useState(true);
-    const perPage = 60;
-
-    const setLoaded = setTimeout(() => { setIsLoading(false) }, perPage * 11)
-
-    useEffect(() => {
-        return () => {
-            clearTimeout(setLoaded);
-        }
-        // eslint-disable-next-line
-    }, [])
-
-
+    const Space = () => (<>&nbsp;&nbsp;&nbsp;&nbsp;</>)
     return (
-        <>
-            {isLoading && <Loadings.Spinner />}
+        <Container>
+            <Header>
+                React Pokedex
+            </Header>
+            <Pikachu src={pikachu} alt="Pikachu" />
 
-            <Container isLoading={isLoading}>
-                {pokemons
-                    .filter((pokemon: IPokemon, index: number) => (index >= (page - 1) * perPage && index < page * perPage))
-                    .map((pokemon: IPokemon) => {
+            <Text>
+                Pokedex criada para aprender mais sobre ReactJs e Typescript, com o auxilio da PokeApi (uma API gratuita que armazena informações sobre Pokemon).
+            </Text>
 
-                        { pokemon.id = urlToId(pokemon.url) }// eslint-disable-line
-
-                        return (<Card key={pokemon.name} pokemon={pokemon} />
-                        )
-                    })
-                }
-            </Container>
-
-            <Pagination
-                isLoading={isLoading}
-                setIsLoading={setIsLoading}
-                currentPage={page}
-                count={count}
-                maxPerPage={perPage}
-            />
-
-        </>
+            <Button to='/pokemons'>Ver Pokemons</Button>
+            
+        </Container>
     )
 }

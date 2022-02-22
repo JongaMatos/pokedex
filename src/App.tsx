@@ -1,5 +1,5 @@
 import React from 'react';
-import { Home, UnderConstruction } from "./pages";
+import { ListPokemons, UnderConstruction, Home } from "./pages";
 import { Switch, Route, RouteComponentProps } from "react-router-dom"
 import { useApi } from './utils';
 import { Loadings } from './components';
@@ -15,20 +15,21 @@ function App() {
 
   return (
     <Switch>
-      <Route path="/" exact render={() => <UnderConstruction />} />
+      <Route path="/" exact render={() => <Home />} />
       <Route path="/Types" render={() => <UnderConstruction />} />
 
 
       <Route path="/pokemons/" exact render={() => {
         if (response)
-          return <Home count={response.count} pokemons={response.pokemons} page={1} />
+          return <ListPokemons count={response.count} pokemons={response.results} page={1} />
         return <Loadings.Spinner />
       }} />
+      
       <Route path="/pokemons/:page" render={(props: RouteComponentProps<IRouteInfo>) => {
 
         const { page } = props.match.params
         if (response)
-          return <Home count={response.count} pokemons={response.results} page={parseInt(page)} />
+          return <ListPokemons count={response.count} pokemons={response.results} page={parseInt(page)} />
 
         return <Loadings.Spinner />
       }} />
