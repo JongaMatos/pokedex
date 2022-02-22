@@ -2,8 +2,8 @@ import React, { useContext } from 'react';
 import { ListPokemons, Home, PokemonTypes } from "./pages";
 import { Switch, Route, RouteComponentProps } from "react-router-dom"
 import { LoadPokemonContext } from './context';
-import { Loadings } from './components';
-
+// import { Loadings } from './components';
+import { PikachuLoading } from './components';
 import './App.css';
 
 interface IRouteInfo {
@@ -26,7 +26,7 @@ function App() {
         const { filteredPokemon, length } = filterPokemonByType(type || "");
 
         if (!detailedPokemons)
-          return <Loadings.Spinner />
+          return <PikachuLoading />
         if (!length) return <PokemonTypes />
 
         return <ListPokemons count={length} pokemons={filteredPokemon} page={1} filter={type} />
@@ -39,7 +39,7 @@ function App() {
         const { filteredPokemon, length } = filterPokemonByType(type || "");
 
         if (!detailedPokemons)
-          return <Loadings.Spinner />
+          return <PikachuLoading />
         if (!length) return <PokemonTypes />
 
         return <ListPokemons count={length} pokemons={filteredPokemon} page={(page && parseInt(page)) || 1} filter={type} />
@@ -54,7 +54,7 @@ function App() {
 
       <Route path="/pokemons/" exact render={() => {
         if (detailedPokemons) return <ListPokemons count={detailedPokemons.length} pokemons={detailedPokemons} page={1} />
-        return <Loadings.Spinner />
+        return <PikachuLoading />
       }} />
 
       <Route path="/pokemons/:page" render={(props: RouteComponentProps<IRouteInfo>) => {
@@ -62,7 +62,7 @@ function App() {
         const { page } = props.match.params
         if (page)
           if (detailedPokemons) return <ListPokemons count={detailedPokemons.length} pokemons={detailedPokemons} page={parseInt(page)} />
-        return <Loadings.Spinner />
+        return <PikachuLoading />
       }} />
       {/* <Route path="/pokemon" component={PokemonDetails} /> */}
     </Switch>

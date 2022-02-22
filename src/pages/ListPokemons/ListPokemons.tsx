@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Container } from './ListPokemonsStyles';
-import { Card, Loadings, PaginationBar } from '../../components';
+import { Card, PikachuLoading, PaginationBar } from '../../components';
 // import { urlToId } from '../../utils';
 import { IPokemonData } from '../../global';
 
@@ -27,7 +27,7 @@ export default function ListPokemons({ page, pokemons, count, filter }: IProps) 
 
     return (
         <>
-            {isLoading && <Loadings.Spinner />}
+            {isLoading && <PikachuLoading />}
 
             <Container isLoading={isLoading}>
                 {pokemons && pokemons

@@ -14,7 +14,6 @@ interface LoadPokemonProviderProps {
 
 interface LoadPokemonData {
     detailedPokemons: false | IPokemonData[];
-    loadedTypes: false | string[];
     filterPokemonByType: (filterType: string) => ({ filteredPokemon: IPokemonData[], length: number });
 
 }
@@ -53,25 +52,12 @@ export const LoadPokemonProvider = ({ children }: LoadPokemonProviderProps) => {
 
     }
 
-    const [allTypes] = useApi("https://pokeapi.co/api/v2/type/?limit=50")
-    const [loadedTypes, setLoadedTypes] = useState<false | string[]>(false);
-
-    useEffect(() => {
-
-        if (!loadedTypes && allTypes)
-            setLoadedTypes(allTypes.results
-                .map((type: ISType) => type.name)
-                .filter((type: string) => type !== 'shadow' && type !== 'unknown')
-            )
-
-    }, [loadedTypes, allTypes])
-
 
     return (
         <LoadPokemonContext.Provider value={{
             detailedPokemons,
             filterPokemonByType,
-            loadedTypes,
+            
         }}>
             {children}
         </LoadPokemonContext.Provider>

@@ -1,10 +1,8 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, {  useEffect, useState } from 'react'
 import { Container, ClosedCard } from './PokemonTypesStyle'
 import { Image } from '../../components'
-import { LoadPokemonContext } from '../../context'
 import { usePush, colorByType, captalize } from '../../utils'
-import { Loadings } from '../../components'
-import Pikachu from '../../assets/running-pikachu.gif'
+import { PikachuLoading } from '../../components'
 
 export default function PokemonTypes() {
     const push = usePush();
@@ -21,7 +19,7 @@ export default function PokemonTypes() {
 
     return (
         <>
-        {loadingDelay && <Loadings.OnePikachuLoading/>}
+        {loadingDelay && <PikachuLoading/>}
             <Container show={!loadingDelay}>
 
                 {Types.map((type, index) => (
@@ -32,9 +30,6 @@ export default function PokemonTypes() {
                     >
                         <Image
                             src={`/Badges/${type}.svg`}
-
-                            fallback={<Loadings.OnePikachuLoading />}
-                            // onLoad={<img src={Pikachu} alt="loading"/>}
                             alt={type} />
                         {captalize(type)}
                     </ClosedCard>
