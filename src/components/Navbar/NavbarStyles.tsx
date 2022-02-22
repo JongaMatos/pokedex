@@ -23,7 +23,8 @@ export const Logo = styled(NavLink)`
     @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;1,300&display=swap');
     font-family: 'Lato', sans-serif;
     text-decoration: none;
-    color: #C3CBF4;
+    /* color: #C3CBF4; */
+    color:white;
     font-size: 1.8rem;
 
     background-color: inherit;
@@ -73,7 +74,9 @@ export const CloseDropdownButton = styled(close) <IDrop>`
     top: 0;
 
     background-color: inherit;
-    color: #C3CBF4;
+    /* color: #C3CBF4; */
+    color:white;
+
 
     font-size: 2rem;
     /* width: 10rem; */
@@ -93,7 +96,9 @@ export const Link = styled(NavLink)`
     
     font-family: 'Lato', sans-serif;
     text-decoration: none;
-    color: #C3CBF4;
+    /* color: #C3CBF4; */
+    color:white;
+
     font-size: 1.3rem;
 
     border-radius: 5px;
@@ -123,7 +128,9 @@ export const About = styled.a`
     font-family: 'Lato', sans-serif;
     text-decoration: none;
     color: #111032;
-    background-color: #C3CBF4;
+    /* background-color: #C3CBF4; */
+    background-color:white;
+
 
     font-size: 1.3rem;
 
