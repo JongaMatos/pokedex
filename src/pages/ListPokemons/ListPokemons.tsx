@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Container } from './ListPokemonsStyles';
-import { Card, Loadings, Pagination } from '../../components';
+import { Card, Loadings, PaginationBar } from '../../components';
 // import { urlToId } from '../../utils';
 import { IPokemonData } from '../../global';
 
@@ -39,7 +39,7 @@ export default function ListPokemons({ page, pokemons, count, filter }: IProps) 
                 }
             </Container>
 
-            <Pagination
+            <PaginationBar
                 filter={filter || "none"}
                 isLoading={isLoading}
                 setIsLoading={setIsLoading}

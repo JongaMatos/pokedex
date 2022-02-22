@@ -1,5 +1,5 @@
 import React, { Dispatch, SetStateAction } from 'react';
-import { PaginationButton, PaginationContainer } from './PaginationStyles';
+import { PaginationButton, PaginationContainer } from './PaginationBarStyles';
 import { range, usePush } from '../../utils';
 
 interface IProps {
@@ -11,7 +11,7 @@ interface IProps {
     filter: string
 };
 
-export default function Pagination({ currentPage, maxPerPage, isLoading, setIsLoading, count, filter }: IProps) {
+export default function PaginationBar({ currentPage, maxPerPage, isLoading, setIsLoading, count, filter }: IProps) {
     const push = usePush();
     // const { count, perPage } = paginationData;
 
