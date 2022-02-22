@@ -3,11 +3,14 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import Router from './Router';
 import App from './App';
+import { LoadPokemonProvider } from './context';
 
 ReactDOM.render(
   <React.StrictMode>
     <Router>
-    <App />
+      <LoadPokemonProvider>
+        <App />
+      </LoadPokemonProvider>
     </Router>
   </React.StrictMode>,
   document.getElementById('root')

@@ -1,16 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import { Container } from './ListPokemonsStyles';
-import { Card, Loadings, Pagination } from '../../components';
-import { urlToId } from '../../utils';
-import { IPokemon } from '../../global';
+import { Card, PikachuLoading, PaginationBar } from '../../components';
+// import { urlToId } from '../../utils';
+import { IPokemonData } from '../../global';
 
 interface IProps {
     page: number;
-    pokemons: IPokemon[];
+    pokemons: IPokemonData[];
     count: number;
+    filter?: string
 }
 
-export default function ListPokemons({ page, pokemons, count }: IProps) {
+export default function ListPokemons({ page, pokemons, count, filter }: IProps) {
     const [isLoading, setIsLoading] = useState(true);
     const perPage = 60;
 
@@ -26,22 +27,19 @@ export default function ListPokemons({ page, pokemons, count }: IProps) {
 
     return (
         <>
-            {isLoading && <Loadings.Spinner />}
+            {isLoading && <PikachuLoading />}
 
             <Container isLoading={isLoading}>
                 {pokemons && pokemons
-                    .filter((pokemon: IPokemon, index: number) => (index >= (page - 1) * perPage && index < page * perPage))
-                    .map((pokemon: IPokemon) => {
-
-                        { pokemon.id = urlToId(pokemon.url) }// eslint-disable-line
-
-                        return (<Card key={pokemon.name} pokemon={pokemon} />
-                        )
-                    })
+                    .filter((pokemon: IPokemonData, index: number) => (index >= (page - 1) * perPage && index < page * perPage))
+                    .map(
+                        (pokemon: IPokemonData) => (<Card key={pokemon.name} pokemon={pokemon} />)
+                    )
                 }
             </Container>
 
-            <Pagination
+            <PaginationBar
+                filter={filter || "none"}
                 isLoading={isLoading}
                 setIsLoading={setIsLoading}
                 currentPage={page}

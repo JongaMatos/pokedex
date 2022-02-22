@@ -1,19 +1,17 @@
-import { Oval } from 'react-loader-spinner'
+import { Spinner,PikachuLoading } from './LoadingStyles';
+import Pikachu from '../../assets/running-pikachu.gif'
 
 
 
 const Loadings = {
 
-    Spinner(props: any) {
+    Spinner() {
+        return<Spinner />
+    },
 
-        return (
-            <div style={props.style}>
-                <Oval color='#B3D7FB' width={"100%"} />
-            </div>
-        )
+    OnePikachuLoading(){
+        return <PikachuLoading src={Pikachu} alt='loading'/>
     }
-
-
 
 
 }

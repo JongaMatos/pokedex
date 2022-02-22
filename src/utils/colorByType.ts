@@ -1,44 +1,44 @@
 const colorByType = (type: string) => {
-    
-    switch (type) {
-        case 'grass':
-            return '#74CB48'
-        case 'fire':
-            return '#F57D31'
-        case 'water':
-            return '#6493EB'
-        case 'normal':
-            return '#AAA67F'
-        case 'rock':
-            return '#B69E31'
-        case 'ghost':
-            return '#70559B'
-        case 'fighting':
-            return '#C12239'
-        case 'steel':
-            return '#B7B9D0'
-        case 'flying':
-            return '#A891EC'
-        case 'poison':
-            return '#A43E9E'
-        case 'ground':
-            return '#DEC16B'
-        case 'psychic':
-            return '#FB5584'
-        case 'ice':
-            return '#9AD6DF'
-        case 'dark':
-            return '#75574C'
-        case 'electric':
-            return '#F9CF30'
-        case 'fairy':
-            return '#E69EAC'
-        case 'dragon': {
 
-            return '#7037FF'
-        }
-        case 'bug':
-            return '#A7B723'
+    switch (type) {
+        case 'grass'://Done
+            return '#59C04B'
+        case 'fire'://Done
+            return '#F3973E'
+        case 'water'://Done
+            return '#3393DD'
+        case 'normal'://done
+            return '#929BA3'
+        case 'rock'://Done
+            return '#C9B787'
+        case 'ghost'://Done
+            return '#4B6AB3'
+        case 'fighting'://Done
+            return '#E13A6A'
+        case 'steel'://Done
+            return '#5A8FA3'
+        case 'flying'://Done
+            return '#8AACE4'
+        case 'poison'://Done
+            return '#B667CF'
+        case 'ground'://Done
+            return '#E97337'
+        case 'psychic'://Done
+            return '#EE6375'
+        case 'ice'://done
+            return '#5CD2C1'
+        case 'dark'://done
+            return '#5B5366'
+        case 'electric'://Done
+            return '#FBD349'
+        case 'fairy'://Done
+            return '#EF89EC'
+        case 'dragon'://Done
+            return '#1D70CA'
+        case 'bug'://Done
+            return '#84C435'
+        case 'shadow'://Done
+            return '#5B5366'
         default:
             return '#EFEFEF'
     }

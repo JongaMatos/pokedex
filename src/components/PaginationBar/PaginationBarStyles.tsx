@@ -15,6 +15,8 @@ export const PaginationButton = styled.button<IPaginationButton>`
     padding-left: 0.5rem;
     padding-right: 0.5rem;
     font-size: large;
+    margin-left:1rem ;
+    margin-right:1rem ;
 
     border-radius: 0.2rem;
 
@@ -28,19 +30,16 @@ export const PaginationContainer = styled.div`
 
     /* display: flex; */
     display: ${({ isLoading }: IPaginationContainer) => (isLoading ? "none" : "flex")};
-    width: 30%;
     margin: auto;
 
-    justify-content: space-around;
-    /* background-color: black; */
+    justify-content: center;
 
-    margin-bottom: 2rem;
-    margin-top: 1rem;
+    margin-bottom: 1rem;
 
     @media (max-width: 810px)
     {
         margin-top:2rem;
-        width: 15rem;
+        /* width: 15rem; */
    
     }
 

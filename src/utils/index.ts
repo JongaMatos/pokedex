@@ -1,5 +1,8 @@
 import urlToId from "./urlToId";
-import colorByType from "./colorByType";
+// import colorByType from "./colorByType";
+import colorByType from './colorBytype';
+
+
 import showId from "./showId";
 import captalize from "./captalize";
 import range from "./range";

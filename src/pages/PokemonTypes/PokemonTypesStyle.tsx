@@ -1,0 +1,47 @@
+import styled from "styled-components";
+
+interface ICard {
+
+}
+
+
+
+interface IContainer {
+    show: boolean;
+}
+
+export const Container = styled.div<IContainer>`
+    display:${({ show }: IContainer) => show ? 'flex' : 'none'};
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+`
+
+
+
+export const ClosedCard = styled.div <ICard>`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  
+
+    width: 12rem;
+    margin:5rem;
+    
+    padding-bottom: 1rem;
+
+
+    color: #FEFEFE;
+    font-size: 2rem;
+
+    &:hover{
+        cursor: pointer;
+    }
+
+`
+export const Image = styled.img`
+    width:100%;
+    background-color: inherit;
+
+
+`

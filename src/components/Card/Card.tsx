@@ -1,46 +1,25 @@
-import React, { useEffect, useState } from 'react'
-import { showId, captalize, useApi, colorByType } from '../../utils';
+import React from 'react'
+import { showId, captalize, colorByType } from '../../utils';
 import { PokemonCard, PokemonName, PokemonId } from './CardStyles'
 import { Image, Loadings } from '..'
 import interrogação from '../../assets/interrogação.jpg'
-import { IPokemon } from '../../global';
+import { IPokemonData } from '../../global';
 
 
 
 
 interface IProps {
-    pokemon: IPokemon
+    pokemon: IPokemonData
 }
 
 export default function Card({ pokemon }: IProps) {
-    const [apiResult, isLoading, Reload] = useApi(`pokemon/${pokemon.id}`);
-    const [color, setColor] = useState("black");
-
-    useEffect(() => {
-        if (apiResult && !isLoading) {
-            setColor(colorByType(apiResult.types[0].type.name))
-
-        }
-        if (!apiResult && !isLoading) {
-            Reload();
-            // console.log(`Reloading ${pokemon.name}`)
-        }
-
-        // if (pokemon.id)
-        //     console.log({ result: apiResult, name: pokemon.name });
-        return () => { };    
-        // eslint-disable-next-line
-    }, [apiResult, isLoading])
-
-
-    // const push = usePush()
 
     const handleClick = (id: Number) => {
         // push(`/pokemon/?id=${id}`);
         return;
 
     }
-
+    const color = colorByType(pokemon.types[0].type.name)
 
     return (
         <PokemonCard color={color} onClick={() => (handleClick(pokemon.id))}>
@@ -62,14 +41,6 @@ export default function Card({ pokemon }: IProps) {
                     `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${pokemon.id}.svg`,
                 ]}
             />
-
-
-            {/* <Image
-                src={['']}
-                alt={pokemon.name}
-                onLoad={<Loadings.Spinner />}
-                fallback={<img src={interrogação} style={{maxWidth:"100%"}}/>}
-            /> */}
 
             <PokemonId>
                 {showId(pokemon.id)}

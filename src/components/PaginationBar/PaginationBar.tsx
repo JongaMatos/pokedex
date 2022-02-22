@@ -1,5 +1,5 @@
 import React, { Dispatch, SetStateAction } from 'react';
-import { PaginationButton, PaginationContainer } from './PaginationStyles';
+import { PaginationButton, PaginationContainer } from './PaginationBarStyles';
 import { range, usePush } from '../../utils';
 
 interface IProps {
@@ -8,9 +8,10 @@ interface IProps {
     isLoading?: boolean
     setIsLoading: Dispatch<SetStateAction<boolean>>;
     count: number;
+    filter: string
 };
 
-export default function Pagination({ currentPage, maxPerPage, isLoading, setIsLoading, count }: IProps) {
+export default function PaginationBar({ currentPage, maxPerPage, isLoading, setIsLoading, count, filter }: IProps) {
     const push = usePush();
     // const { count, perPage } = paginationData;
 
@@ -25,7 +26,6 @@ export default function Pagination({ currentPage, maxPerPage, isLoading, setIsLo
             size = maxSize;
 
         const tail = Math.floor(size / 2);
-        // console.log({ Quantia: amountOfPages, Par: isEven, Rabo: tail });
 
         if (curentPage <= tail)
             return range(1, size, amountOfPages);
@@ -37,10 +37,19 @@ export default function Pagination({ currentPage, maxPerPage, isLoading, setIsLo
     }
 
     const handleGoTo = (Number: Number) => {
-        if (Number !== currentPage) {
-            setIsLoading(true);
-            push(`/pokemons/${Number}`)
+        if (currentPage === Number)
+            return;
+        setIsLoading(true);
+
+        if (filter === "none") {
+            push(`/pokemons/${Number}`);
+            return;
         }
+        push(`/type/${filter}/${Number}`);
+        return;
+
+
+
     }
 
     return (
