@@ -4,9 +4,6 @@ import { getPokemonByName } from '../services/pokemon';
 import { useApi } from '../utils';
 
 
-interface ISType {
-    name: string;
-}
 
 interface LoadPokemonProviderProps {
     children: ReactNode;
