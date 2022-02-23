@@ -23,9 +23,6 @@
 ---
 
 
-
-
-<br/>
 <span id="descrição">
 
 ## 📄   Descrição do projeto 
