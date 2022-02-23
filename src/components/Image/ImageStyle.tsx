@@ -15,6 +15,7 @@ export const Img = styled.img`
 
 `
 export const Load = styled.div`
+    background-color: transparent;
     max-width: 100%;
     display: ${({ isLoading }: ImgProps) => (isLoading ? "block" : "none")};
 

@@ -15,7 +15,7 @@ export default function ListPokemons({ page, pokemons, count, filter }: IProps) 
     const [isLoading, setIsLoading] = useState(true);
     const perPage = 60;
 
-    const setLoaded = setTimeout(() => { setIsLoading(false) }, perPage * 11)
+    const setLoaded = setTimeout(() => { setIsLoading(false) }, perPage * 10)
 
     useEffect(() => {
         return () => {

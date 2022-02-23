@@ -16,6 +16,7 @@ export const Container = styled.nav`
     margin-bottom: 5%;
 
     position: sticky;
+    z-index: 1;
     top:0;
     
     
