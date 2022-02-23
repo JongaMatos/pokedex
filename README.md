@@ -37,7 +37,7 @@ Uma pokedex com o auxilio da [PokeApi](https://pokeapi.co/) (uma api gratuita qu
 - `Hooks`: durante o desenvolvimento, fiz uso de diversos `hooks`, tanto dos que veem pré-instalados com o `React` (como `useState` e `useEffect` ), quanto os que eu mesmo criei com o auxilio destes (como `useApi` e outros);
 - `Styled-Components`: biblioteca utilizada para estilizaão das páginas da aplicação;
 - `Axios`: biblioteca usada para fazer as requisições para a API;
-- 
+
 <span id="fontes">
 
 ## 📖  Fontes e assets
