@@ -14,6 +14,7 @@ export const Container = styled.div<IContainer>`
     display:${({ show }: IContainer) => show ? 'flex' : 'none'};
     justify-content: space-evenly;
     flex-wrap: wrap;
+    /* margin-bottom: 4%; */
 `
 
 
