@@ -14,6 +14,9 @@ export const Container = styled.nav`
     display: flex;
     justify-content: space-between;
     margin-bottom: 5%;
+
+    position: sticky;
+    top:0;
     
     
     `
@@ -43,11 +46,10 @@ export const Logo = styled(NavLink)`
 export const LinkContainer = styled.div<IDrop>`
     /* background-color: white; */
     width: 50%;
-    background-color: inherit;
+    background-color: #111032;
     display: flex;
     justify-content: space-around;
     align-items: center;
-
 
     @media screen and (max-width: 806px) {
 
@@ -57,7 +59,7 @@ export const LinkContainer = styled.div<IDrop>`
         padding-top: 9rem;
 
         width: 100%;
-        height: 100%;
+        height: 100vh;
         
         
         display: ${props => props.isopen ? "flex" : "none"};

@@ -14,6 +14,7 @@ export const Container = styled.div<IContainer>`
     display:${({ show }: IContainer) => show ? 'flex' : 'none'};
     justify-content: space-evenly;
     flex-wrap: wrap;
+    /* margin-bottom: 4%; */
 `
 
 
@@ -36,6 +37,18 @@ export const ClosedCard = styled.div <ICard>`
 
     &:hover{
         cursor: pointer;
+    }
+
+    @media screen and (max-width:1055px){
+        width: 20%;
+        margin:5%;
+    }
+    @media screen and (max-width:880px){
+        font-size: 1.5rem;
+        margin:5%;
+    }
+    @media screen and (max-width:540px){
+        font-size: 1rem;
     }
 
 `
