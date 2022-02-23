@@ -38,6 +38,18 @@ export const ClosedCard = styled.div <ICard>`
         cursor: pointer;
     }
 
+    @media screen and (max-width:1055px){
+        width: 20%;
+        margin:5%;
+    }
+    @media screen and (max-width:880px){
+        font-size: 1.5rem;
+        margin:5%;
+    }
+    @media screen and (max-width:540px){
+        font-size: 1rem;
+    }
+
 `
 export const Image = styled.img`
     width:100%;
