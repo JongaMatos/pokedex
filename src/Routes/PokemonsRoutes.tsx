@@ -12,7 +12,7 @@ interface IRouteInfo {
 
 
 export default function PokemonsRoutes() {
-    const { detailedPokemons, filterPokemonByType } = useContext(LoadPokemonContext);
+    const { detailedPokemons } = useContext(LoadPokemonContext);
 
     return (<>
         <Route path="/pokemons/" exact render={() => {

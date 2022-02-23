@@ -61,7 +61,7 @@ export default function Image({ src, alt, onError, fallback, onLoad }: IProps) {
 
                     <Load isLoading={isLoading}>
 
-                        {onLoad ? onLoad : <></>}
+                        {onLoad && onLoad}
                     </Load>
                 </>
 

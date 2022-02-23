@@ -2,8 +2,8 @@ import React from 'react'
 import { showId, captalize, colorByType } from '../../utils';
 import { PokemonCard, PokemonName, PokemonId } from './CardStyles'
 import { Image, Loadings } from '..'
-import interrogação from '../../assets/interrogação.jpg'
 import { IPokemonData } from '../../global';
+import interrogação from '../../assets/interrogação.png'
 
 
 
@@ -30,25 +30,20 @@ export default function Card({ pokemon }: IProps) {
             </PokemonName>
 
             <Image
-                onLoad={<Loadings.Spinner />}
+                onLoad={<Loadings.SpinningPokeball  backGroundColor={color}/>}
                 // onError={() => { console.log({ error: `Imagem ${pokemon.id} não carregou` }) }}
                 alt={pokemon.name}
-                fallback={<img src={interrogação} alt="interrogação" style={{ width: "100%" }} />}
+                fallback={<img src={interrogação} alt="interrogação" style={{ width: "50%",padding:"10%",backgroundColor:"inherit" }} />}
 
                 src={[
                     `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.id}.png`,
                     `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.id}.png`,
                     `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${pokemon.id}.svg`,
                 ]}
+                // src={['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',]}
             />
 
 
-            {/* <Image
-                src={['']}
-                alt={pokemon.name}
-                onLoad={<Loadings.Spinner />}
-                fallback={<img src={interrogação} style={{maxWidth:"100%"}}/>}
-            /> */}
 
             <PokemonId>
                 {showId(pokemon.id)}
