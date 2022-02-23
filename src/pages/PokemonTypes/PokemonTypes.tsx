@@ -3,6 +3,7 @@ import { Container, ClosedCard } from './PokemonTypesStyle'
 import { Image } from '../../components'
 import { usePush, colorByType, captalize } from '../../utils'
 import { PikachuLoading } from '../../components'
+// import {} from '../../assets'
 
 export default function PokemonTypes() {
     const push = usePush();
@@ -29,7 +30,7 @@ export default function PokemonTypes() {
                         style={{ backgroundColor: `${colorByType(type)}` }}
                     >
                         <Image
-                            src={`/Badges/${type}.svg`}
+                            src={require(`../../assets/Badges/${type}.svg`)}
                             alt={type} />
                         {captalize(type)}
                     </ClosedCard>
