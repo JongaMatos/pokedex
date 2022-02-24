@@ -17,7 +17,7 @@
 * ✔️&nbsp; [Tecnologias utilizadas](#%EF%B8%8F---tecnologias-utilizadas)
 * 📖&nbsp; [Fontes e assets](#--fontes-e-assets)
 * 🤔&nbsp; [Desafios e aprendizados](#--desafios-e-aprendizados)
-  * ⛵&nbsp; [Navegação entre rotas com Gh Pages](#--navegação-entre-paginas-com-github-pages)
+  * ⛵&nbsp; [Navegação entre rotas com Gh Pages](#navegação)
 * 📁&nbsp; [Acesso ao projeto](#--acesso-ao-projeto)
 * 🛠️&nbsp; [Rodando localmente](#%EF%B8%8F--rodando-localmente)
 
@@ -46,8 +46,14 @@ Uma pokedex com o auxilio da [PokeApi](https://pokeapi.co/) (uma api gratuita qu
 
 
 ## 🤔  Desafios e aprendizados
+<br>
 
-### ⛵  Navegação entre paginas com Github Pages
+
+<details id='navegação'>
+<summary>⛵  Navegação entre paginas com Github Pages
+</summary>
+<br>
+
 
 Essa foi a primeira aplicação com navegação entre paginas com rotas que adicionei ao Github Pages, e não demorou para que surgissem comportamentos inseperados.
 
@@ -67,10 +73,8 @@ Muitas das possiveis formas de solucionar o problema seriam inviaveis devido as 
 No final solucionei de forma relativamente simples: alterei a estratégia de roteamento.<br/>
  A biblioteca `react-router-dom` (usada para navegação das rotas), possui um roteador diferente do "padrão" (`BrowserRouter`), chamado `HashRouter`. Neste roteador as rotas passam a ser relativas a um `#` (por exemplo: '/pokedex/' passa a ser '/pokedex/#' e '/pokedex/pokemons' vira '/pokedex/#/pokemons'), este caracter é interpretado pelo navegador como se estivesse tentando ir para uma região da mesma página, e consequentemente ele ainda busca o arquivo `index.html` da rota principal, permitindo acessar todas as rotas diretamente e recarregar a pagina sem problemas. 
 
-
-
-  
-
+</details>
+<br/>
 
 ## 📁  Acesso ao projeto
 A versão mais recente deste projeto pode ser encontrada online [aqui](https://jongamatos.github.io/pokedex/#/).
