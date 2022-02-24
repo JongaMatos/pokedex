@@ -17,7 +17,7 @@
 * ✔️&nbsp; [Tecnologias utilizadas](#tecnologia)
 * 📖&nbsp; [Fontes e assets](#fontes)
 * 🤔&nbsp; [Desafios e aprendizados](#aprendizados)
-  * ⛵&nbsp; [Navegação entre rota com Gh Pages](#navegaçao)
+  * ⛵&nbsp; [Navegação entre rotas com Gh Pages](#navegaçao)
 * 📁&nbsp; [Acesso ao projeto](#acesso)
 * 🛠️&nbsp; [Rodando localmente](#local)
 
