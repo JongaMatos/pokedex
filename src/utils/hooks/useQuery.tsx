@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useLocation, useHistory } from 'react-router-dom'
 export default function useQuery() {
+    
     const push = useHistory().push;
     const loaction = useLocation();
     const query = new URLSearchParams(loaction.search);
@@ -14,6 +15,7 @@ export default function useQuery() {
         return () => {
 
         }
+        // eslint-disable-next-line
     }, [query])
 
 

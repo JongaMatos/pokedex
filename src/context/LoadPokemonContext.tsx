@@ -1,7 +1,7 @@
 import { createContext, ReactNode, useEffect, useState } from 'react'
 import { IPokemonData } from '../global';
 import { getPokemonByName } from '../services/pokemon';
-import { useApi } from '../utils';
+import { useApi } from '../utils/hooks';
 
 
 

@@ -1,5 +1,5 @@
 import React from 'react'
-import { showId, captalize, colorByType } from '../../utils';
+import { showId, captalize, colorByType } from '../../utils/stringUtils';
 import { PokemonCard, PokemonName, PokemonId } from './CardStyles'
 import { Image, Loadings } from '..'
 import { IPokemonData } from '../../global';

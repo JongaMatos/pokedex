@@ -1,6 +1,7 @@
 import React, { Dispatch, SetStateAction } from 'react';
+import { useHistory } from 'react-router-dom';
 import { PaginationButton, PaginationContainer } from './PaginationBarStyles';
-import { range, usePush } from '../../utils';
+import { range } from '../../utils';
 
 interface IProps {
     currentPage: number;
@@ -12,7 +13,7 @@ interface IProps {
 };
 
 export default function PaginationBar({ currentPage, maxPerPage, isLoading, setIsLoading, count, filter }: IProps) {
-    const push = usePush();
+    const push = useHistory().push;
     // const { count, perPage } = paginationData;
 
 

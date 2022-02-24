@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom';
 import { IPokemonData } from '../../global';
 import { getPokemonById } from '../../services/pokemon'
-import {  colorByType, showId, captalize } from '../../utils';
+import {  colorByType, showId, captalize } from '../../utils/stringUtils';
 import { PokemonContainer, PokemonImage, Data, DataText, Types, Type, Text } from './DetailsStyles';
 
 interface IParams{
