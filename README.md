@@ -11,10 +11,12 @@
 ### Indice
 
 * 📄&nbsp; [Descrição](#descrição)
-* ✔️ &nbsp; [Tecnologias utilizadas](#tecnologia)
+* ✔️&nbsp; [Tecnologias utilizadas](#tecnologia)
 * 📖&nbsp; [Fontes e assets](#fontes)
+* 🤔&nbsp; [Desafios e aprendizados](#aprendizados)
+  * ⛵&nbsp; [Navegação entre rota com Gh Pages](#navegaçao)
 * 📁&nbsp; [Acesso ao projeto](#acesso)
-* 🛠️ &nbsp; [Rodando localmente](#local)
+* 🛠️&nbsp; [Rodando localmente](#local)
 
 
 ---
@@ -44,6 +46,34 @@ Uma pokedex com o auxilio da [PokeApi](https://pokeapi.co/) (uma api gratuita qu
 
 - `PokApi`: API gratuita de onde todos os dados apresentados são coletados;
 - [`WikiMidia`](https://commons.wikimedia.org/wiki/Category:Pok%C3%A9mon_types_icons): onde encontrei as imagens das medalhas de cada tipo de pokemon (que usei como base para a paleta de cores);
+
+<span id="aprendizados">
+
+## 🤔  Desafios e aprendizados
+<span id="navegaçao">
+
+### ⛵  Navegação entre paginas com Github Pages
+
+Essa foi a primeira aplicação com navegação entre paginas com rotas que adicionei ao Github Pages, e não demorou para que surgissem comportamentos inseperados.
+
+O primeiro foi quando vi que a páginas estvam todas em branco, isso ocorreu pois era necessário adaptar a rota base de "/" para "/pokedex/", afinal este é o endereço onde o Gh Pages colocou a aplicação.
+
+O segundo foi quando notei problemas para acessar rotas diferentes da rota base da aplicação, por exemplo:
+
+  1. Se eu navegasse da rota base ('/pokedex/') para a rota de visualização de pokemons ('/pokedex/pokemons/') pela interface, tudo funcionaría como esperado. 
+  2. Se tentasse recarregar a pagina nessa segunda rota ou acessar sua url diretamente, seria renderizada uma pagina do Gh Pages constando 'Erro 404, página não encontrada".
+
+Após um pouco de pesquisa, descobri que isso ocorre pois o Gh Pages lida com "landind pages", e quando renderiza a rota ele busca o arquivo `index.html`, que no caso não existe para todas as rotas.
+
+Demorou um pouco para encontrar uma solução para este problema, cheguei a cogitar deixar desta forma, pois "é o comportamento normal da plataforma". Porem a ideia de alguem acessar a aplicação, ver tudo funcionando, para depois atualizar a pagina, e se deparar com esse comportameno, me fez continuar buscando soluções.
+
+Muitas das possiveis formas de solucionar o problema seriam inviaveis devido as limitações do Gh Pages, por exempolo: rodar um servidor NodeJs, que garanta que que todas as rotas sejam "redirecionadas" pelo arquivo `index.html` (não é possivel pois o ambiente do Github só permite arquivos estáticos).
+
+No final solucionei de forma relativamente simples: alterei a estratégia de roteamento.<br/>
+ A biblioteca `react-router-dom` (usada para navegação das rotas), possui um roteador diferente do "padrão" (`BrowserRouter`), chamado `HashRouter`. Neste roteador as rotas passam a ser relativas a um `#` (por exemplo: '/pokedex/' passa a ser '/pokedex/#' e '/pokedex/pokemons' vira '/pokedex/#/pokemons'), este caracter é interpretado pelo navegador como se estivesse tentando ir para uma região da mesma página, e consequentemente ele ainda busca o arquivo `index.html` da rota principal, permitindo acessar todas as rotas diretamente e recarregar a pagina sem problemas. 
+
+
+
   
 <span id="acesso">
 
@@ -55,6 +85,7 @@ A versão mais recente deste projeto pode ser encontrada online [aqui](https://j
 
 
 ## 🛠️  Rodando localmente 
+
 Para rodar o projeto localmente deve-se primeiramente ter instalado o NodeJs, e o git.
 
 
