@@ -81,10 +81,7 @@ A biblioteca `react-router-dom` (usada para navegação das rotas), possui um ro
 </details>
 
 <details>
-<summary style="display:inline;">
-<!-- <summary > -->
-
-###  💻&nbsp; Consumindo e mostrando dados.
+<summary style="display:inline;"> <h3 style="display:inline;">💻&nbsp; Consumindo e mostrando dados.</h3>
 </summary>
 <br>
 <div style="margin-left: 1rem;">
