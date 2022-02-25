@@ -1,17 +1,13 @@
-// import React, { useContext } from 'react';
 import React, { useContext } from "react";
-import { Home, ListPokemons, PokemonTypes } from "./pages";
 import { Switch, Route } from "react-router-dom"
+
 import { LoadPokemonContext } from './context';
 
-
-import './App.css';
+import { Home, ListPokemons, PokemonTypes } from "./pages";
 import { PikachuLoading } from "./components";
+import './App.css';
 
-// interface IRouteInfo {
-//   page?: string;
-//   type?: string
-// }
+
 
 function App() {
 

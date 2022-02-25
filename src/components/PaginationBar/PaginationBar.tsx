@@ -1,5 +1,4 @@
 import React, { Dispatch, SetStateAction } from 'react';
-// import { useHistory } from 'react-router-dom';
 import { PaginationButton, PaginationContainer } from './PaginationBarStyles';
 import { range } from '../../utils';
 import { useQuery } from '../../utils/hooks';
@@ -13,13 +12,10 @@ interface IProps {
 };
 
 export default function PaginationBar({ currentPage, maxPerPage, isLoading, setIsLoading, count }: IProps) {
-    // const push = useHistory().push;
     const { setQuery } = useQuery();
-    // const { count, perPage } = paginationData;
 
 
     const amountOfPages = Math.ceil(count / maxPerPage);
-    // const isEven = (amountOfPages % 2 === 0);
 
 
     const paginationRange = (curentPage: number = 1, size: number = 5) => {
@@ -42,13 +38,9 @@ export default function PaginationBar({ currentPage, maxPerPage, isLoading, setI
         if (currentPage === Number)
             return;
         setIsLoading(true);
-
     
-        // push(`/type/${filter}/${Number}`);
         setQuery('page', Number.toString())
         return;
-
-
 
     }
 

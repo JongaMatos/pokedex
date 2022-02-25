@@ -23,7 +23,6 @@ export const Container = styled.nav`
     `
 
 export const Logo = styled(NavLink)`
-    /* @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@1,300&display=swap'); */
     @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;1,300&display=swap');
     font-family: 'Lato', sans-serif;
     text-decoration: none;

@@ -15,7 +15,6 @@ interface IProps {
 export default function Card({ pokemon }: IProps) {
 
     const handleClick = (id: Number) => {
-        // push(`/pokemon/?id=${id}`);
         return;
 
     }

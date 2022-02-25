@@ -1,7 +1,6 @@
 import React, { useEffect, useState, useContext } from 'react';
 import { Container } from './ListPokemonsStyles';
 import { Card, PikachuLoading, PaginationBar, SearchBar } from '../../components';
-// import { urlToId } from '../../utils';
 import { IPokemonData } from '../../global';
 import { useQuery } from '../../utils/hooks';
 
