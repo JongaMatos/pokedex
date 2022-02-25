@@ -122,7 +122,7 @@ No geral, a pagina estava longe de ser fluida e sua performance deixando muito a
 
 ### 1.3. Nova solução 
 
-Pensando em uma forma de otimizar este fluxo, pensei na segunda estratégia;
+Pensando em uma forma de otimizar este fluxo, pensei na [segunda estratégia](#2-segunda-estratégia);
 
 ## 2. Segunda estratégia
 
@@ -137,7 +137,7 @@ Minha primeira ideia de otmização foi diminuir a quantia de dados que precisam
 ### 2.2. Comportamento observado
 Desta forma a pagina e seus componentes passaram a carregar de forma mais rapida, mas ainda podia-se perceber as imagens terminando de carregar e um delay para os Cards assumirem suas cores finais.
 
-### 2.3. Solução
+### 2.3. Ajuste
 Para passar uma maior impressão de fluidez, tive a ideia de colocar um timer na pagina. Depois de ***list*** retornar os dados iniciais, a pagina continuaria mostrando a tela de carregamento por alguns instantes a mais, enquanto isso as imagens e dados dos Cards terminariam de carregar (ocultas com a propriedade "display: none;" do CSS), dando uma maior sensação de fluidez.
 
 ### 2.4. Novo problema
@@ -145,7 +145,7 @@ Com isso, meu problema inicial estava solucionado, mas acabei me deparando com o
 
 ### 2.5. Como resolver?
 
-Refletindo sobre como viabilisar estas funcionalidades, pensei na terceira estratégia.
+Refletindo sobre como viabilisar estas funcionalidades, pensei na [terceira estratégia](#3-terceira-estratégia).
 
 ## 3. Terceira estratégia
 
