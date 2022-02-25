@@ -142,6 +142,7 @@ Refletindo sobre como viabilisar estas funcionalidades, pensei na terceira estra
 
 ## 3. Terceira estratégia
 
+</details>
 
  
 ## 📁  Acesso ao projeto
