@@ -62,8 +62,8 @@ Essa foi a primeira aplicação com navegação entre paginas com rotas que adic
 
 ### Indice
 
-- [Primeira dififuldade]()
-- [Segunda dificuldade]()
+- [Primeira dififuldade](#primeira-dificuldade)
+- [Segunda dificuldade](#segunda-dificuldade)
 
 
 ## Primeira dificuldade
