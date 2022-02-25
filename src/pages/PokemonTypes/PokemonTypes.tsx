@@ -1,4 +1,4 @@
-import React, {  useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import { Container, ClosedCard } from './PokemonTypesStyle'
 import { Image } from '../../components'
@@ -21,13 +21,13 @@ export default function PokemonTypes() {
 
     return (
         <>
-        {loadingDelay && <PikachuLoading/>}
+            {loadingDelay && <PikachuLoading />}
             <Container show={!loadingDelay}>
 
                 {Types.map((type, index) => (
                     <ClosedCard
                         key={type}
-                        onClick={() => { push(`/type/${type}/`) }}
+                        onClick={() => { push(`/pokemons/?type=${type}`) }}
                         style={{ backgroundColor: `${colorByType(type)}` }}
                     >
                         <Image

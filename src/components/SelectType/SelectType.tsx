@@ -46,6 +46,8 @@ export default function SelectType() {
       clearPage();
     }
     return () => { }
+    
+    // eslint-disable-next-line
   }, [selectValue])
 
 

@@ -1,4 +1,4 @@
-import React, { BaseSyntheticEvent } from 'react'
+// import React, { BaseSyntheticEvent } from 'react'
 import { SelectType } from '..'
 import { Container } from './SearchBarStyles'
 

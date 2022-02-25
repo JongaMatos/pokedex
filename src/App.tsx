@@ -1,12 +1,12 @@
 // import React, { useContext } from 'react';
-import React from "react";
-import { Home } from "./pages";
+import React, { useContext } from "react";
+import { Home, ListPokemons, PokemonTypes } from "./pages";
 import { Switch, Route } from "react-router-dom"
-// import { LoadPokemonContext } from './context';
-import { TypeRoutes, PokemonsRoutes } from './Routes';
+import { LoadPokemonContext } from './context';
 
 
 import './App.css';
+import { PikachuLoading } from "./components";
 
 // interface IRouteInfo {
 //   page?: string;
@@ -14,15 +14,21 @@ import './App.css';
 // }
 
 function App() {
-  // const { detailedPokemons, filterPokemonByType } = useContext(LoadPokemonContext);
+
+  const { detailedPokemons } = useContext(LoadPokemonContext);
   return (
     <Switch>
-      <Route path="/" exact render={() => <Home />} />
 
-      <>
-        <PokemonsRoutes />
-        <TypeRoutes />
-      </>
+
+      <Route path="/" exact render={() => <Home />} />
+      
+      <Route path="/type" exact render={() => <PokemonTypes />} />
+
+      <Route path="/pokemons/" exact render={() => {
+            if (detailedPokemons) return <ListPokemons  />
+            return <PikachuLoading />
+        }} />
+     
 
 
     </Switch>

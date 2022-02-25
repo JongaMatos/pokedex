@@ -1,18 +1,16 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import { Container } from './ListPokemonsStyles';
 import { Card, PikachuLoading, PaginationBar, SearchBar } from '../../components';
 // import { urlToId } from '../../utils';
 import { IPokemonData } from '../../global';
 import { useQuery } from '../../utils/hooks';
 
-interface IProps {
-    page: number;
-    pokemons: IPokemonData[];
-    count: number;
-    filter?: string
-}
+import { SearchContex } from '../../context';
 
-export default function ListPokemons({ page, pokemons, count, filter }: IProps) {
+
+export default function ListPokemons() {
+    const { getFiltered } = useContext(SearchContex);
+    const testPokemons = getFiltered();
     const { getPage } = useQuery();
     const [isLoading, setIsLoading] = useState(true);
     const perPage = 120;
@@ -20,7 +18,7 @@ export default function ListPokemons({ page, pokemons, count, filter }: IProps) 
     const teste = getPage();
 
     const setLoaded = setTimeout(() => { setIsLoading(false) }, perPage * 7)
-
+    
     useEffect(() => {
         return () => {
             clearTimeout(setLoaded);
@@ -30,13 +28,14 @@ export default function ListPokemons({ page, pokemons, count, filter }: IProps) 
 
 
 
+
     return (
         <>
             {isLoading && <PikachuLoading />}
             {!isLoading && <SearchBar />}
 
             <Container isLoading={isLoading}>
-                {pokemons && pokemons
+                {testPokemons && testPokemons
                     .filter((pokemon: IPokemonData, index: number) => (index >= (teste - 1) * perPage && index < teste * perPage))
                     .map(
                         (pokemon: IPokemonData) => (<Card key={pokemon.name} pokemon={pokemon} />)
@@ -45,11 +44,10 @@ export default function ListPokemons({ page, pokemons, count, filter }: IProps) 
             </Container>
 
             <PaginationBar
-                filter={filter || "none"}
                 isLoading={isLoading}
                 setIsLoading={setIsLoading}
                 currentPage={teste}
-                count={count}
+                count={ (testPokemons && testPokemons.length) || 0}
                 maxPerPage={perPage}
             />
 
