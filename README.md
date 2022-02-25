@@ -48,6 +48,8 @@ Uma pokedex com o auxilio da [PokeApi](https://pokeapi.co/) (uma api gratuita qu
 
 ## 🤔  Desafios e aprendizados
 
+Nesta sessão estão registrados algumas dificuldades técnicos que tive no decorrer do desenvolvimento, bem como a forma que utilizei para resolve-las.
+
 <details>
 <summary  >⛵&nbsp; Navegação entre paginas no Github Pages
 </summary>
