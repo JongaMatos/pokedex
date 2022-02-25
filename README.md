@@ -49,9 +49,7 @@ Uma pokedex com o auxilio da [PokeApi](https://pokeapi.co/) (uma api gratuita qu
 ## 🤔  Desafios e aprendizados
 
 <details>
-<summary style="display:inline;" >
-
-### ⛵&nbsp; Navegação entre paginas no Github Pages
+<summary  >⛵&nbsp; Navegação entre paginas no Github Pages
 </summary>
 <br/>
 
@@ -81,7 +79,7 @@ A biblioteca `react-router-dom` (usada para navegação das rotas), possui um ro
 </details>
 
 <details>
-<summary style="display:inline;"> <h3 style="display:inline;">💻&nbsp; Consumindo e mostrando dados.</h3>
+<summary > 💻&nbsp; Consumindo e mostrando dados.</h3>
 </summary>
 <br>
 <div style="margin-left: 1rem;">
