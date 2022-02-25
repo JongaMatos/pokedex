@@ -74,22 +74,22 @@
 
  ### Comportamento observado
 
-  O segundo foi quando notei problemas para acessar rotas diferentes da rota base da aplicação, por exemplo:
+  A segunda foi quando notei problemas ao acessar rotas diferentes da rota base da aplicação, por exemplo:
 
-  1. Se eu navegasse da rota base ('/pokedex/') para a rota de visualização de pokemons ('/pokedex/pokemons/') pela interface, tudo funcionaría como esperado. 
-  2. Se tentasse recarregar a pagina nessa segunda rota ou acessar sua url diretamente, seria renderizada uma pagina do Gh Pages constando 'Erro 404, página não encontrada".
+  1. Se eu navegasse da rota base ('/pokedex/') para a rota de visualização de pokemons ('/pokedex/pokemons/') pela interface, tudo funcionaria como esperado. 
+  2. Se tentasse recarregar a página nessa segunda rota ou acessar sua url diretamente, seria renderizada uma pagina do Gh Pages constando 'Erro 404, página não encontrada".
 
 
  ### Causas
 
-  Após um pouco de pesquisa, descobri que isso ocorre pois o Gh Pages lida com "landind pages", e quando renderiza a rota ele busca o arquivo `index.html`, que no caso não existe para todas as rotas.
+  Após um pouco de pesquisa, descobri que isso ocorre porque o Gh Pages lida com "landind pages", e quando renderiza a rota ele busca o arquivo `index.html`, que no caso não existe para todas as rotas.
 
-  Demorou um pouco para encontrar uma solução para este problema, cheguei a cogitar deixar desta forma, pois "é o comportamento normal da plataforma". Porem a ideia de alguem acessar a aplicação, ver tudo funcionando, para depois atualizar a pagina e se deparar com esse comportameno, me fez continuar buscando soluções.
+  Demorou um pouco para encontrar uma solução para este problema.Cheguei a cogitar deixar dessa forma, pois "é o comportamento normal da plataforma". Porém a ideia de alguem acessar a aplicação, ver tudo funcionando, para depois atualizar a página e se deparar com esse comportamento, me fez continuar buscando soluções.
 
 
  ### Solução
 
-  Muitas das possiveis formas de solucionar o problema seriam inviaveis devido as limitações do Gh Pages, por exemplo: rodar um servidor NodeJs, que garanta que que todas as rotas sejam "redirecionadas" pelo arquivo `index.html` (não é possivel pois o ambiente do Github só permite arquivos estáticos).
+  Muitas das possíveis formas de solucionar o problema seriam inviáveis devido as limitações do Gh Pages. Por exemplo: rodar um servidor NodeJs, que garanta que que todas as rotas sejam "redirecionadas" pelo arquivo `index.html` (não é possível pois o ambiente do Github só permite arquivos estáticos).
 
   No final, solucionei de forma relativamente simples: alterei a estratégia de roteamento.
 
