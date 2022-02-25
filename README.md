@@ -11,14 +11,14 @@
 ---
 
 
-### Indice
+### Índice
 
  * 📄&nbsp; [Descrição](#---descrição-do-projeto)
  * ✔️&nbsp; [Tecnologias utilizadas](#%EF%B8%8F---tecnologias-utilizadas)
  * 📖&nbsp; [Fontes e assets](#--fontes-e-assets)
  * 🤔&nbsp; [Desafios e aprendizados](#--desafios-e-aprendizados)
   * ⛵&nbsp; [Navegação entre rotas no Gh Pages](#--desafios-e-aprendizados)
-  * 💻&nbsp; [Escolha de como usar a API](#--desafios-e-aprendizados)
+  * 💻&nbsp; [Consumindo e mostrando dados](#--desafios-e-aprendizados)
  * 📁&nbsp; [Acesso ao projeto](#--acesso-ao-projeto)
  * 🛠️&nbsp; [Rodando localmente](#%EF%B8%8F--rodando-localmente)
 
@@ -106,7 +106,7 @@
 <!-- <br> -->
 <div style="margin-left: 1rem;">
 
- ### Indice
+ ### Índice
  
   0. [Recursos utilizados](#os-recursos-que-utlilizei)
   1. [A primeira estratégia](#1-primeira-estratégia)
