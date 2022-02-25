@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useLocation, useHistory } from 'react-router-dom'
 export default function useQuery() {
-    
+
     const push = useHistory().push;
     const loaction = useLocation();
     const query = new URLSearchParams(loaction.search);
@@ -36,8 +36,33 @@ export default function useQuery() {
 
     }
 
+    const hasQuery = (key: string) => {
+        return query.has(key);
+    }
+
+    const clearPage = () => {
+        if (query.has('page')) {
+            query.delete('page');
+            push({
+                search: '?' + query.toString()
+            })
+        }
+    }
+
+    const getPage = () => {
+        const page = query.get('page')
+
+        if (!page)
+            return 1;
+
+        try {
+            return parseInt(page);
+        } catch (error) {
+            return 1;
+        }
+    }
 
 
-    return { query: state, getQuery, setQuery }
+    return { query: state, getQuery, setQuery, hasQuery, clearPage, getPage }
 
 }

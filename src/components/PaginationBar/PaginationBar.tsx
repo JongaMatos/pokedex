@@ -2,6 +2,7 @@ import React, { Dispatch, SetStateAction } from 'react';
 import { useHistory } from 'react-router-dom';
 import { PaginationButton, PaginationContainer } from './PaginationBarStyles';
 import { range } from '../../utils';
+import { useQuery } from '../../utils/hooks';
 
 interface IProps {
     currentPage: number;
@@ -14,6 +15,7 @@ interface IProps {
 
 export default function PaginationBar({ currentPage, maxPerPage, isLoading, setIsLoading, count, filter }: IProps) {
     const push = useHistory().push;
+    const { setQuery } = useQuery();
     // const { count, perPage } = paginationData;
 
 
@@ -43,10 +45,12 @@ export default function PaginationBar({ currentPage, maxPerPage, isLoading, setI
         setIsLoading(true);
 
         if (filter === "none") {
-            push(`/pokemons/${Number}`);
+            // push(`/pokemons/${Number}`);
+            setQuery('page', Number.toString())
             return;
         }
-        push(`/type/${filter}/${Number}`);
+        // push(`/type/${filter}/${Number}`);
+        setQuery('page', Number.toString())
         return;
 
 

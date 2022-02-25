@@ -1,6 +1,6 @@
 import React from 'react'
 import { BrowserRouter, HashRouter, Route } from 'react-router-dom'
-import Navbar from './components/Navbar/Navbar'
+import { Navbar } from './components';
 
 interface IProps {
     children: JSX.IntrinsicAttributes & React.ReactNode

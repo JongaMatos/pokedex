@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { Container } from './ListPokemonsStyles';
-import { Card, PikachuLoading, PaginationBar } from '../../components';
+import { Card, PikachuLoading, PaginationBar, SearchBar } from '../../components';
 // import { urlToId } from '../../utils';
 import { IPokemonData } from '../../global';
+import { useQuery } from '../../utils/hooks';
 
 interface IProps {
     page: number;
@@ -12,8 +13,11 @@ interface IProps {
 }
 
 export default function ListPokemons({ page, pokemons, count, filter }: IProps) {
+    const { getPage } = useQuery();
     const [isLoading, setIsLoading] = useState(true);
     const perPage = 120;
+
+    const teste = getPage();
 
     const setLoaded = setTimeout(() => { setIsLoading(false) }, perPage * 7)
 
@@ -25,13 +29,15 @@ export default function ListPokemons({ page, pokemons, count, filter }: IProps) 
     }, [])
 
 
+
     return (
         <>
             {isLoading && <PikachuLoading />}
+            {!isLoading && <SearchBar />}
 
             <Container isLoading={isLoading}>
                 {pokemons && pokemons
-                    .filter((pokemon: IPokemonData, index: number) => (index >= (page - 1) * perPage && index < page * perPage))
+                    .filter((pokemon: IPokemonData, index: number) => (index >= (teste - 1) * perPage && index < teste * perPage))
                     .map(
                         (pokemon: IPokemonData) => (<Card key={pokemon.name} pokemon={pokemon} />)
                     )
@@ -42,7 +48,7 @@ export default function ListPokemons({ page, pokemons, count, filter }: IProps) 
                 filter={filter || "none"}
                 isLoading={isLoading}
                 setIsLoading={setIsLoading}
-                currentPage={page}
+                currentPage={teste}
                 count={count}
                 maxPerPage={perPage}
             />
