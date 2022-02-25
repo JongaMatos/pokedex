@@ -70,9 +70,10 @@ O segundo foi quando notei problemas para acessar rotas diferentes da rota base 
   1. Se eu navegasse da rota base ('/pokedex/') para a rota de visualização de pokemons ('/pokedex/pokemons/') pela interface, tudo funcionaría como esperado. 
   2. Se tentasse recarregar a pagina nessa segunda rota ou acessar sua url diretamente, seria renderizada uma pagina do Gh Pages constando 'Erro 404, página não encontrada".
 
-Após um pouco de pesquisa, descobri que isso ocorre pois o Gh Pages lida com "landind pages", e quando renderiza a rota ele busca o arquivo `index.html`, que no caso não existe para todas as rotas.
 
 ### Causas
+
+Após um pouco de pesquisa, descobri que isso ocorre pois o Gh Pages lida com "landind pages", e quando renderiza a rota ele busca o arquivo `index.html`, que no caso não existe para todas as rotas.
 
 Demorou um pouco para encontrar uma solução para este problema, cheguei a cogitar deixar desta forma, pois "é o comportamento normal da plataforma". Porem a ideia de alguem acessar a aplicação, ver tudo funcionando, para depois atualizar a pagina, e se deparar com esse comportameno, me fez continuar buscando soluções.
 
