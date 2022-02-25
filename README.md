@@ -114,8 +114,8 @@
 
  ## Os recursos que utlilizei
   1. A aplicação faz uso de dois endpoints da PokeApi:
-    1.  **/pokemon/:id** : que retorna todas as informações associadas a um pokemon que possui o id referenciado, me referirei a este endpoind como ***details***.
-    2.  **/pokemon/** : retorna uma lista de nomes e id's de pokemons, iniciando no query offset (valor padrão igual a zero) e retornando uma quantia de itens igual ao query limit (valor padrão igual a vinte), vou me referir a este endpoint como ***list***.
+     1. **/pokemon/:id** : que retorna todas as informações associadas a um pokemon que possui o id referenciado, me referirei a este endpoind como ***details***.
+     2. **/pokemon/** : retorna uma lista de nomes e id's de pokemons, iniciando no query offset (valor padrão igual a zero) e retornando uma quantia de itens igual ao query limit (valor padrão igual a vinte), vou me referir a este endpoint como ***list***.
   2.  A cor dos cards na pagina de listar pokemons depende do tipo do pokemon, informação obtida com o endpoint ***details***.
   3.  As imagens dos pokemons são obtidas no repositório [sprites](https://github.com/PokeAPI/sprites), onde são nomeadas pelo id de cada pokemon (tornando facil encontrar suas url's).
 
