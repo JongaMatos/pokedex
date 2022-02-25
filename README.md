@@ -81,13 +81,15 @@ A biblioteca `react-router-dom` (usada para navegação das rotas), possui um ro
 <details>
 <summary > 💻&nbsp; Consumindo e mostrando dados.</h3>
 </summary>
-<br>
+<!-- <br> -->
 <div style="margin-left: 1rem;">
 
-0. [Recursos utilizados](#os-recursos-que-utilizei)
-1. [A primeira estratégia](#1.-primeira-estrategia)
-2. [A segunda estratégia](#2.-segunda-estratégia)
-3. [A terceira estratégia](#3.-terceira-estratégia)
+### Indice
+ 
+0. [Recursos utilizados](#os-recursos-que-utlilizei)
+1. [A primeira estratégia](#1-primeira-estratégia)
+2. [A segunda estratégia](#2-segunda-estratégia)
+3. [A terceira estratégia](#3-terceira-estratégia)
 
 ## Os recursos que utlilizei
 1. A aplicação faz uso de dois endpoints da PokeApi:
