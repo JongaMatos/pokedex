@@ -82,9 +82,9 @@ A biblioteca `react-router-dom` (usada para navegação das rotas), possui um ro
 <summary>💻&nbsp; Consumindo e mostrando dados.
 </summary>
 <br>
-<div style="margin-left: 0.5rem;">
+<div style="margin-left: 1rem;">
 
-Antes de iniciar, acho bom explicar algumas coisas:
+## Os reusrsos que utlilizei
 1. A aplicação faz uso de dois endpoints da PokeApi:
    1.  "/pokemon/:id" : que retorna todas as informações associadas a um pokemon que possui o id referenciado, me referirei a este endpoind como ***details***.
    2.  "/pokemon/" : retorna uma lista de nomes e id's de pokemons, iniciando no query offset (valor padrão igual a zero) e retornando uma quantia de itens igual ao query limit (valor padrão igual a vinte), vou me referir a este endpoint como ***list***.
@@ -94,11 +94,9 @@ Antes de iniciar, acho bom explicar algumas coisas:
 
 Agora, sobre minhas estratégias e dificuldades:
 
-<details>
-<summary> Primeira estratégia
-</summary>
+## 1. Primeira estratégia
 
-### 1. O ponto de partida
+### 1.1. O ponto de partida
 
 De inicio eu havia tentado usar estes recursos da seguinte forma:
 
@@ -106,7 +104,7 @@ De inicio eu havia tentado usar estes recursos da seguinte forma:
 2. Com a função .map, renderizar um componente Card para cada pokemon com os dados obtidos e a imagem encontrada com o id.
 3. Dentro do componente Card se fazia uma requisição para o endpoint ***details***, alterando a cor de fundo da padrão para a cor que representa o tipo do pokemon.
 
-### 2. Observações
+### 1.2. Observações
 
 Fazendo as coisas desta forma, me deparei com alguns problemas:
 * A pagina se tornou extremamente pesada e lenta devido a quantidade de componentes renderizados;
@@ -115,17 +113,13 @@ Fazendo as coisas desta forma, me deparei com alguns problemas:
 
 No geral, a pagina estava longe de ser fluida e sua performance deixando muito a desejar.
 
-### 3. Nova solução 
+### 1.3. Nova solução 
 
 Pensando em uma forma de otimizar este fluxo, pensei na segunda estratégia;
 
-</details>
+## 2. Segunda estratégia
 
-<details>
-<summary> Segunda estratégia
-</summary>
-
-### 1. A ideia
+### 2.1. A ideia
 
 Minha primeira ideia de otmização foi diminuir a quantia de dados que precisam ser carregados, então:
 
@@ -133,28 +127,20 @@ Minha primeira ideia de otmização foi diminuir a quantia de dados que precisam
 2. Mostrar as informações da mesma forma da estratégia anterior.
 3. Adicionar um sistema de paginação, para poder navegar para a próxima pagina, onde uma porção diferente dos dados seriam carregados.
 
-### 2. Comportamento observado
+### 2.2. Comportamento observado
 Desta forma a pagina e seus componentes passaram a carregar de forma mais rapida, mas ainda podia-se perceber as imagens terminando de carregar e um delay para os Cards assumirem suas cores finais.
 
-### 3. Solução
+### 2.3. Solução
 Para passar uma maior impressão de fluidez, tive a ideia de colocar um timer na pagina. Depois de ***list*** retornar os dados iniciais, a pagina continuaria mostrando a tela de carregamento por alguns instantes a mais, enquanto isso as imagens e dados dos Cards terminariam de carregar (ocultas com a propriedade "display: none;" do CSS), dando uma maior sensação de fluidez.
 
-### 4. Novo problema
+### 2.4. Novo problema
 Com isso, meu problema inicial estava solucionado, mas acabei me deparando com outro. Na lista de funcionalidades que pretendia implementar, se encontram a possibilidade de filtrar os pokemons por tipo, e a possibilidade de pesquisar pokemons por nome (visualizando a melhor correspondencia). Ambas são funcionalidades que a PokeApi não traz suporte, então para implementa-las, seria necessário ter todas as informações disponiveis de forma simultanea.
 
-### 5. Como resolver?
+### 2.5. Como resolver?
 
+Refletindo sobre como viabilisar estas funcionalidades, pensei na terceira estratégia.
 
-</details>
-
-
-
-
-
-</div>
-
-
-</details>
+## 3. Terceira estratégia
 
 
  
