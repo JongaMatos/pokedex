@@ -6,12 +6,12 @@ import { useQuery } from '../../utils/hooks';
 interface IProps {
     currentPage: number;
     maxPerPage: number;
-    isLoading?: boolean
+    hide?: boolean
     setIsLoading: Dispatch<SetStateAction<boolean>>;
     count: number;
 };
 
-export default function PaginationBar({ currentPage, maxPerPage, isLoading, setIsLoading, count }: IProps) {
+export default function PaginationBar({ currentPage, maxPerPage, hide, setIsLoading, count }: IProps) {
     const { setQuery } = useQuery();
 
 
@@ -37,6 +37,7 @@ export default function PaginationBar({ currentPage, maxPerPage, isLoading, setI
     const handleGoTo = (Number: Number) => {
         if (currentPage === Number)
             return;
+            
         setIsLoading(true);
     
         setQuery('page', Number.toString())
@@ -45,7 +46,7 @@ export default function PaginationBar({ currentPage, maxPerPage, isLoading, setI
     }
 
     return (
-        <PaginationContainer isLoading={isLoading}>
+        <PaginationContainer hide={hide}>
             {paginationRange(currentPage).map((Number) => (
 
                 <PaginationButton

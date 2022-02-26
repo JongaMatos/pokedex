@@ -1,5 +1,5 @@
 // import React, { BaseSyntheticEvent } from 'react'
-import { SelectType } from '..'
+import { SelectType, SearchInput } from '..'
 import { Container } from './SearchBarStyles'
 
 export default function SearchBar() {
@@ -7,6 +7,7 @@ export default function SearchBar() {
 
     return (
         <Container>
+            <SearchInput />
             <SelectType />
 
         </Container>

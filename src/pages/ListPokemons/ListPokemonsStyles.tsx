@@ -1,14 +1,14 @@
 import styled from "styled-components/macro";
 
 interface IContainer {
-    isLoading: boolean
+    hide: boolean
 }
 
 
 export const Container = styled.div`
 
     /* display: flex; */
-    display: ${({ isLoading }: IContainer) => (isLoading ? "none" : "flex")};
+    display: ${({ hide: isLoading }: IContainer) => (isLoading ? "none" : "flex")};
     flex-wrap: wrap;
     justify-content: space-evenly;
     width: 90%;
