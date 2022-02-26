@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.c37c78b6.css",
-    "main.js": "/static/js/main.d37396ab.js",
+    "main.js": "/static/js/main.bd5fbcb1.js",
     "static/media/pikachu-home.png": "/static/media/pikachu-home.62f719d3ed9ef601ca1d.png",
     "static/media/interrogação.png": "/static/media/interrogação.5500ba4348d9658f98f3.png",
     "static/media/running-pikachu.gif": "/static/media/running-pikachu.8b1be00cc12260fa5484.gif",
@@ -27,10 +27,10 @@
     "static/media/electric.svg": "/static/media/electric.5b9316bb6f1ac3d4dfb5.svg",
     "index.html": "/index.html",
     "main.c37c78b6.css.map": "/static/css/main.c37c78b6.css.map",
-    "main.d37396ab.js.map": "/static/js/main.d37396ab.js.map"
+    "main.bd5fbcb1.js.map": "/static/js/main.bd5fbcb1.js.map"
   },
   "entrypoints": [
     "static/css/main.c37c78b6.css",
-    "static/js/main.d37396ab.js"
+    "static/js/main.bd5fbcb1.js"
   ]
 }
