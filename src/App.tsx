@@ -10,6 +10,7 @@ import './App.css';
 
 
 function App() {
+  
 
   const { detailedPokemons } = useContext(LoadPokemonContext);
   return (
