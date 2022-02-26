@@ -11,8 +11,8 @@ export default function Router({ children }: IProps) {
 
         <BrowserRouter >
 
-            <Route path='/' render={() => (
-                <HashRouter hashType='hashbang' basename='/'>
+            <Route path='/pokedex/' render={() => (
+                <HashRouter hashType='slash' basename='/'>
                     <Navbar />
                     {children}
                 </HashRouter>
