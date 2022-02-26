@@ -12,7 +12,7 @@ export default function ListPokemons() {
     const testPokemons = getFiltered();
     const { getPage } = useQuery();
     const [isLoading, setIsLoading] = useState(true);
-    const perPage = 120;
+    const perPage = 60;
 
     const teste = getPage();
 

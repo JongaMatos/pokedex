@@ -27,7 +27,7 @@ export default function Navbar() {
         <Link to="/pokemons/" onClick={close}> Pokemons</Link>
 
         <About
-          href="https://github.com/JongaMatos/pokedex/blob/main/README.md"
+          href="https://github.com/JongaMatos/pokedex/blob/main/README.md#start"
           target='_blank'
           onClick={close} >
           Sobre

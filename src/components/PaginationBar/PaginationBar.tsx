@@ -46,17 +46,20 @@ export default function PaginationBar({ currentPage, maxPerPage, isLoading, setI
 
     return (
         <PaginationContainer isLoading={isLoading}>
-            {paginationRange(currentPage).map((Number) => (
+            {paginationRange(currentPage)
+                .map((Number) => {
 
-                <PaginationButton
-                    isCurrentPage={currentPage === Number}
-                    key={Number}
-                    onClick={() => handleGoTo(Number)}
-                >
-                    {Number}
-                </PaginationButton>
-
-            ))}
+                    return (
+                        <PaginationButton
+                            // isCurrentPage={currentPage === Number}
+                            key={Number}
+                            onClick={() => handleGoTo(Number)}
+                        >
+                            {Number}
+                        </PaginationButton>
+                    )
+                }
+                )}
 
         </PaginationContainer>
     )

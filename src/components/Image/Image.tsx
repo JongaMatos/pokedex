@@ -57,7 +57,7 @@ export default function Image({ src, alt, onError, fallback, onLoad }: IProps) {
         <>
             {toFallback ? fallback :
                 <>
-                    <Img src={image.url} isLoading={isLoading} alt={alt} onLoad={handleLoad} onError={handleError} style={{backgroundColor:"inherit",borderRadius:"inherit"}}/>
+                    <Img src={image.url} isLoading={isLoading} alt={alt} onLoad={handleLoad} onError={handleError} />
 
                     <Load isLoading={isLoading}>
 

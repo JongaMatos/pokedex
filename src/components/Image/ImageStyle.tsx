@@ -10,6 +10,8 @@ export const Img = styled.img`
     width: 90%;
     padding: 5%;
     display: ${({ isLoading }: ImgProps) => (isLoading ? "none" : "block")};
+    background-color: inherit;
+    /* border-radius: inherit; */
 
 `
 export const Load = styled.div`

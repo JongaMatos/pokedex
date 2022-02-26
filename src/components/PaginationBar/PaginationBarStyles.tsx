@@ -1,16 +1,16 @@
 import styled from "styled-components";
 
 interface IPaginationButton {
-    isCurrentPage: boolean;
+    isCurrentPage?: boolean;
 }
 interface IPaginationContainer {
     isLoading?: boolean;
 }
 
+/* background-color: ${(props) => (props.isCurrentPage ? "#2046F5" : "#2046F5")}; */
 export const PaginationButton = styled.button<IPaginationButton>`
 
     background-color: #2046F5;
-    /* background-color: ${(props) => (props.isCurrentPage ? "#2046F5" : "#2046F5")}; */
     color: #EFEFEF;
     padding-left: 0.5rem;
     padding-right: 0.5rem;

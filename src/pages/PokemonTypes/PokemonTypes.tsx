@@ -4,6 +4,7 @@ import { Container, ClosedCard } from './PokemonTypesStyle'
 import { Image } from '../../components'
 import { colorByType, captalize } from '../../utils/stringUtils';
 import { PikachuLoading } from '../../components'
+// import {} from '../../assets/Badges/'
 
 export default function PokemonTypes() {
     const push = useHistory().push;
