@@ -15,10 +15,10 @@
 * 📄&nbsp; [Descrição](#---descrição-do-projeto)
 * ✔️&nbsp; [Tecnologias utilizadas](#%EF%B8%8F---tecnologias-utilizadas)
 * 📖&nbsp; [Fontes e assets](#--fontes-e-assets)
-*  ⚙️&nbsp; [Funcionalidades]()
+*  ⚙️&nbsp; [Funcionalidades](#%EF%B8%8F--funcionalidades)
 * 🤔&nbsp; [Desafios e aprendizados](#--desafios-e-aprendizados)
   * ⛵&nbsp; [Navegação entre rotas no Gh Pages](#--desafios-e-aprendizados)
-  * 💻&nbsp; [Escolha de como usar a API](#--desafios-e-aprendizados)
+  * 💻&nbsp; [Consumindo e mostrando dados](#--desafios-e-aprendizados)
 * 📁&nbsp; [Acesso ao projeto](#--acesso-ao-projeto)
 * 🛠️&nbsp; [Rodando localmente](#%EF%B8%8F--rodando-localmente)
 
