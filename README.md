@@ -15,6 +15,7 @@
 * 📄&nbsp; [Descrição](#---descrição-do-projeto)
 * ✔️&nbsp; [Tecnologias utilizadas](#%EF%B8%8F---tecnologias-utilizadas)
 * 📖&nbsp; [Fontes e assets](#--fontes-e-assets)
+*  ⚙️&nbsp; [Funcionalidades]()
 * 🤔&nbsp; [Desafios e aprendizados](#--desafios-e-aprendizados)
   * ⛵&nbsp; [Navegação entre rotas no Gh Pages](#--desafios-e-aprendizados)
   * 💻&nbsp; [Escolha de como usar a API](#--desafios-e-aprendizados)
@@ -44,6 +45,17 @@
  - `PokeApi`: API gratuita de onde todos os dados apresentados são coletados;
  - [`WikiMidia`](https://commons.wikimedia.org/wiki/Category:Pok%C3%A9mon_types_icons): onde encontrei as imagens das medalhas de cada tipo de pokemon (que usei como base para a paleta de cores);
 
+## ⚙️  Funcionalidades
+
+  &nbsp;✅&nbsp; Concluídas
+   - Listagem de pokemons;
+   - Filtrar pokemons listados por tipo;  
+
+  &nbsp;🚧&nbsp; Em construção:
+   - Busca de pokemon por nome;
+  
+  &nbsp;🔮&nbsp; Futuras:
+   - Visualização de detalhes de cada pokemon, individualmente;
 
 ## 🤔  Desafios e aprendizados
 
