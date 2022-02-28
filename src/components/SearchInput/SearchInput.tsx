@@ -21,9 +21,11 @@ export default function SearchInput() {
     }
 
     useEffect(() => {
-        if (value !== null && value !== queryValue)
+        if (value !== null && value !== queryValue) {
+
             setQuery('search', value);
-        clearPage();
+            clearPage();
+        }
 
         return () => {
 
