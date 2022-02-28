@@ -35,7 +35,7 @@ export default function SearchInput() {
 
 
     return (<Container>
-        <Input placeholder='  Pesquise aqui...' onChange={handleChange} value={value || ''} />
+        <Input placeholder='Pesquise aqui...' onChange={handleChange} value={value || ''} />
 
         <CloseBtn onClick={handleClear} />
 

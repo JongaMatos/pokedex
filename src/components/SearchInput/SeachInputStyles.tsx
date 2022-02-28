@@ -10,6 +10,8 @@ export const Container = styled.div`
 
 export const Input = styled.input`
     background-color: #EFEFEF;
+    padding-left:8px
+
 
 `
 
