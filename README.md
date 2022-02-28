@@ -185,7 +185,8 @@
 
 ## 📖  Fontes e assets
 
- - `PokeApi`: API gratuita de onde todos os dados apresentados são coletados;
+ - [`PokeApi`](https://pokeapi.co/docs/v2): API gratuita de onde todos os dados apresentados são coletados;
+ - [`Sprites`](https://github.com/PokeAPI/sprites): repositório criado pelos mesmos criadores das `PokeApi`, onde estão armazenadas as imagens de cada pokemon;
  - [`WikiMidia`](https://commons.wikimedia.org/wiki/Category:Pok%C3%A9mon_types_icons): onde encontrei as imagens das medalhas de cada tipo de pokemon (que usei como base para a paleta de cores);
 
 
