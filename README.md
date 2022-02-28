@@ -13,12 +13,12 @@
 
 ### Índice
 * 📄&nbsp; [Descrição](#---descrição-do-projeto)
-* ✔️&nbsp; [Tecnologias utilizadas](#%EF%B8%8F---tecnologias-utilizadas)
-* 📖&nbsp; [Fontes e assets](#--fontes-e-assets)
 *  ⚙️&nbsp; [Funcionalidades](#%EF%B8%8F--funcionalidades)
+* ✔️&nbsp; [Tecnologias utilizadas](#%EF%B8%8F---tecnologias-utilizadas)
 * 🤔&nbsp; [Desafios e aprendizados](#--desafios-e-aprendizados)
   * ⛵&nbsp; [Navegação entre rotas no Gh Pages](#--desafios-e-aprendizados)
   * 💻&nbsp; [Consumindo e mostrando dados](#--desafios-e-aprendizados)
+* 📖&nbsp; [Fontes e assets](#--fontes-e-assets)
 * 📁&nbsp; [Acesso ao projeto](#--acesso-ao-projeto)
 * 🛠️&nbsp; [Rodando localmente](#%EF%B8%8F--rodando-localmente)
 
@@ -31,20 +31,6 @@
 
  Uma pokedex com o auxilio da [PokeApi](https://pokeapi.co/) (uma api gratuita que armazena dados de Pokemon).
 
-
-## ✔️   Tecnologias utilizadas 
- - `Typescript`: a linguagem na qual a aplicação foi desenvolvida (é uma versão tipada do `Javascript`);
- - `React`: biblioteca principal da aplicação, é responsavel pela renderização das paginas;
- - `Hooks`: durante o desenvolvimento, fiz uso de diversos `hooks`, tanto dos que veem pré-instalados com o `React` (como `useState` e `useEffect` ), quanto os que eu mesmo criei com o auxilio destes (como `useApi` e `useQuery`);
- - `Styled-Components`: biblioteca utilizada para estilizaão das páginas da aplicação;
- - `Axios`: biblioteca usada para fazer as requisições para a API;
-
-
-## 📖  Fontes e assets
-
- - `PokeApi`: API gratuita de onde todos os dados apresentados são coletados;
- - [`WikiMidia`](https://commons.wikimedia.org/wiki/Category:Pok%C3%A9mon_types_icons): onde encontrei as imagens das medalhas de cada tipo de pokemon (que usei como base para a paleta de cores);
-
 ## ⚙️  Funcionalidades
 
   &nbsp;✅&nbsp; Concluídas
@@ -56,6 +42,16 @@
   
   &nbsp;🔮&nbsp; Futuras:
    - Visualização de detalhes de cada pokemon, individualmente;
+
+
+## ✔️   Tecnologias utilizadas 
+ - `Typescript`: a linguagem na qual a aplicação foi desenvolvida (é uma versão tipada do `Javascript`);
+ - `React`: biblioteca principal da aplicação, é responsavel pela renderização das paginas;
+ - `Hooks`: durante o desenvolvimento, fiz uso de diversos `hooks`, tanto dos que veem pré-instalados com o `React` (como `useState` e `useEffect` ), quanto os que eu mesmo criei com o auxilio destes (como `useApi` e `useQuery`);
+ - `Styled-Components`: biblioteca utilizada para estilizaão das páginas da aplicação;
+ - `Axios`: biblioteca usada para fazer as requisições para a API;
+
+
 
 ## 🤔  Desafios e aprendizados
 
@@ -186,6 +182,13 @@
  ## 3. Terceira estratégia
 
 </details>
+
+## 📖  Fontes e assets
+
+ - `PokeApi`: API gratuita de onde todos os dados apresentados são coletados;
+ - [`WikiMidia`](https://commons.wikimedia.org/wiki/Category:Pok%C3%A9mon_types_icons): onde encontrei as imagens das medalhas de cada tipo de pokemon (que usei como base para a paleta de cores);
+
+
 
  
 ## 📁  Acesso ao projeto
