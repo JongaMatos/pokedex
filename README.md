@@ -73,7 +73,7 @@
 
 ### Índice
 
- - [Primeira dififuldade](#primeira-dificuldade)
+ - [Primeira dificuldade](#primeira-dificuldade)
  - [Segunda dificuldade](#segunda-dificuldade)
 
 
