@@ -7,11 +7,11 @@ interface IProps {
     currentPage: number;
     maxPerPage: number;
     hide?: boolean
-    setIsLoading: Dispatch<SetStateAction<boolean>>;
+    // setIsLoading: Dispatch<SetStateAction<boolean>>;
     count: number;
 };
 
-export default function PaginationBar({ currentPage, maxPerPage, hide, setIsLoading, count }: IProps) {
+export default function PaginationBar({ currentPage, maxPerPage, hide, count }: IProps) {
     const { setQuery } = useQuery();
 
 
@@ -38,7 +38,7 @@ export default function PaginationBar({ currentPage, maxPerPage, hide, setIsLoad
         if (currentPage === Number)
             return;
             
-        setIsLoading(true);
+        // setIsLoading(true);
     
         setQuery('page', Number.toString())
         return;
