@@ -203,14 +203,17 @@
 
 
  Tendo ambos instalados, clone o repositório:
- ```
+
+ ```bash
  git clone https://github.com/JongaMatos/pokedex.git
  ```
+
  Depois navegue até a pasta gerada e rode o seguinte comando:
 
- ```
+ ```bash
  npm install && npm start
  ```
+ 
  E pronto, está rodando localmente.
 
 
