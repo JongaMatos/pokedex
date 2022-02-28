@@ -4,7 +4,7 @@ interface IPaginationButton {
     isCurrentPage?: boolean;
 }
 interface IPaginationContainer {
-    isLoading?: boolean;
+    hide?: boolean;
 }
 
 /* background-color: ${(props) => (props.isCurrentPage ? "#2046F5" : "#2046F5")}; */
@@ -29,7 +29,7 @@ export const PaginationButton = styled.button<IPaginationButton>`
 export const PaginationContainer = styled.div`
 
     /* display: flex; */
-    display: ${({ isLoading }: IPaginationContainer) => (isLoading ? "none" : "flex")};
+    display: ${({ hide }: IPaginationContainer) => (hide ? "none" : "flex")};
     margin: auto;
 
     justify-content: center;

@@ -1,4 +1,4 @@
-import { useContext, createContext, ReactNode, useEffect } from 'react'
+import { useContext, createContext, ReactNode } from 'react'
 import { IPokemonData } from '../global';
 import { useQuery } from '../utils/hooks';
 import { LoadPokemonContext } from './index';
@@ -9,7 +9,7 @@ interface SearchContextProviderProps {
 
 
 interface SearchContextData {
-    getFiltered: ()=> false | IPokemonData[]
+    getFiltered: () => false | IPokemonData[]
 }
 
 
@@ -21,27 +21,36 @@ export const SearchProvider = ({ children }: SearchContextProviderProps) => {
     const { getQuery } = useQuery();
     const { detailedPokemons } = useContext(LoadPokemonContext);
 
-    const type = getQuery('type');
+    const type = getQuery('type')?.toLowerCase();
+    const search = getQuery('search')?.toLowerCase();;
 
 
 
-    useEffect(() => {
-    }, [type])
 
     const getFiltered = () => {
+        var typeFiltered;
+
         if (!detailedPokemons)
             return false
-        if (!type)
-            return detailedPokemons;
 
-        const filteredPokemons = detailedPokemons.filter((pokemon) => {
-            return pokemon.types.some((item) => (item.type.name === type))
-        })
+        if (!type || type === "all" || type === '')
+            typeFiltered = detailedPokemons;
+        else
+            typeFiltered = detailedPokemons.filter((pokemon) => { return pokemon.types.some((item) => (item.type.name === type)) });
 
-        if (filteredPokemons.length > 0)
-            return filteredPokemons;
+        if (!search)
+            return typeFiltered;
 
-        return detailedPokemons;
+        const searchFiltered = typeFiltered.filter((pokemon) => (pokemon.name.includes(search) || search.includes(pokemon.name)));
+
+
+        return searchFiltered.sort((a, b) => {
+            if (a.name < b.name) { return -1; }
+            if (a.name > b.name) { return 1; }
+            return 0;
+        });
+
+
     }
 
 

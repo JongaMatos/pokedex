@@ -49,6 +49,15 @@ export default function useQuery() {
         }
     }
 
+    const clearSearch = () => {
+        if (query.has('search')) {
+            query.delete('search');
+            push({
+                search: '?' + query.toString()
+            })
+        }
+    }
+
     const getPage = () => {
         const page = query.get('page')
 
@@ -63,6 +72,6 @@ export default function useQuery() {
     }
 
 
-    return { query: state, getQuery, setQuery, hasQuery, clearPage, getPage }
+    return { query: state, getQuery, setQuery, hasQuery, clearPage, getPage, clearSearch }
 
 }

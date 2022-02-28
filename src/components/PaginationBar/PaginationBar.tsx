@@ -1,4 +1,4 @@
-import React, { Dispatch, SetStateAction } from 'react';
+import React from 'react';
 import { PaginationButton, PaginationContainer } from './PaginationBarStyles';
 import { range } from '../../utils';
 import { useQuery } from '../../utils/hooks';
@@ -6,12 +6,12 @@ import { useQuery } from '../../utils/hooks';
 interface IProps {
     currentPage: number;
     maxPerPage: number;
-    isLoading?: boolean
-    setIsLoading: Dispatch<SetStateAction<boolean>>;
+    hide?: boolean
+    // setIsLoading: Dispatch<SetStateAction<boolean>>;
     count: number;
 };
 
-export default function PaginationBar({ currentPage, maxPerPage, isLoading, setIsLoading, count }: IProps) {
+export default function PaginationBar({ currentPage, maxPerPage, hide, count }: IProps) {
     const { setQuery } = useQuery();
 
 
@@ -37,29 +37,27 @@ export default function PaginationBar({ currentPage, maxPerPage, isLoading, setI
     const handleGoTo = (Number: Number) => {
         if (currentPage === Number)
             return;
-        setIsLoading(true);
-    
+
+        // setIsLoading(true);
+
         setQuery('page', Number.toString())
         return;
 
     }
 
     return (
-        <PaginationContainer isLoading={isLoading}>
-            {paginationRange(currentPage)
-                .map((Number) => {
+        <PaginationContainer hide={hide}>
+            {paginationRange(currentPage).map((Number) => (
 
-                    return (
-                        <PaginationButton
-                            // isCurrentPage={currentPage === Number}
-                            key={Number}
-                            onClick={() => handleGoTo(Number)}
-                        >
-                            {Number}
-                        </PaginationButton>
-                    )
-                }
-                )}
+                <PaginationButton
+                    // isCurrentPage={currentPage === Number}
+                    key={Number}
+                    onClick={() => handleGoTo(Number)}
+                >
+                    {Number}
+                </PaginationButton>)
+
+            )}
 
         </PaginationContainer>
     )

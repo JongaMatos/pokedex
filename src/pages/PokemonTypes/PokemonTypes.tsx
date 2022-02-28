@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import { Container, ClosedCard } from './PokemonTypesStyle'
 import { Image } from '../../components'
-import { colorByType, captalize } from '../../utils/stringUtils';
+import { colorByType, traslateType } from '../../utils/stringUtils';
 import { PikachuLoading } from '../../components'
 // import {} from '../../assets/Badges/'
 
@@ -33,7 +33,7 @@ export default function PokemonTypes() {
                         <Image
                             src={require(`../../assets/Badges/${type}.svg`)}
                             alt={type} />
-                        {captalize(type)}
+                        {traslateType(type)}
                     </ClosedCard>
                 ))
                 }

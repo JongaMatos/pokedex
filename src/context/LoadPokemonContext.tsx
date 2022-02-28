@@ -18,7 +18,7 @@ interface LoadPokemonData {
 export const LoadPokemonContext = createContext({} as LoadPokemonData);
 
 export const LoadPokemonProvider = ({ children }: LoadPokemonProviderProps) => {
-    const [allSimple] = useApi("pokemon/?offset=0&limit=100000")
+    const [allSimple] = useApi("pokemon/?offset=0&limit=100000",500)
     const [detailedPokemons, setDetailledPokemons] = useState<false | IPokemonData[]>(false);
 
     useEffect(() => {

@@ -1,6 +1,6 @@
-import React, { useEffect, useState, useContext } from 'react';
-import { Container } from './ListPokemonsStyles';
-import { Card, PikachuLoading, PaginationBar, SearchBar } from '../../components';
+import React, { useEffect, useContext } from 'react';
+import { Container, ResultHeader } from './ListPokemonsStyles';
+import { Card, PaginationBar, SearchBar, NoneFound } from '../../components';
 import { IPokemonData } from '../../global';
 import { useQuery } from '../../utils/hooks';
 
@@ -9,33 +9,30 @@ import { SearchContex } from '../../context';
 
 export default function ListPokemons() {
     const { getFiltered } = useContext(SearchContex);
-    const testPokemons = getFiltered();
-    const { getPage } = useQuery();
-    const [isLoading, setIsLoading] = useState(true);
+    const pokemons = getFiltered();
+    const { getPage, getQuery, query } = useQuery();
+    const search = getQuery('search');
     const perPage = 60;
 
-    const teste = getPage();
+    const page = getPage();
 
-    const setLoaded = setTimeout(() => { setIsLoading(false) }, perPage * 7)
-    
+
     useEffect(() => {
-        return () => {
-            clearTimeout(setLoaded);
-        }
+        window.scrollTo(0, 0);
+
         // eslint-disable-next-line
-    }, [])
-
-
+    }, [query])
 
 
     return (
         <>
-            {isLoading && <PikachuLoading />}
-            {!isLoading && <SearchBar />}
-
-            <Container isLoading={isLoading}>
-                {testPokemons && testPokemons
-                    .filter((pokemon: IPokemonData, index: number) => (index >= (teste - 1) * perPage && index < teste * perPage))
+            {/* {isLoading && <PikachuLoading />} */}
+            <SearchBar />
+            {search && pokemons && pokemons.length !== 0 && <ResultHeader> Mostrando resultados para ' {search} ':</ResultHeader>}
+            {pokemons && pokemons.length === 0 && <NoneFound />}
+            <Container hide={false}>
+                {pokemons && pokemons
+                    .filter((pokemon: IPokemonData, index: number) => (index >= (page - 1) * perPage && index < page * perPage))
                     .map(
                         (pokemon: IPokemonData) => (<Card key={pokemon.name} pokemon={pokemon} />)
                     )
@@ -43,13 +40,14 @@ export default function ListPokemons() {
             </Container>
 
             <PaginationBar
-                isLoading={isLoading}
-                setIsLoading={setIsLoading}
-                currentPage={teste}
-                count={ (testPokemons && testPokemons.length) || 0}
+                hide={!(pokemons && pokemons.length > perPage)}
+                // setIsLoading={}
+                currentPage={page}
+                count={(pokemons && pokemons.length) || 0}
                 maxPerPage={perPage}
             />
 
         </>
     )
 }
+
