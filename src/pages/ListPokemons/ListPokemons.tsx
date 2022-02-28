@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useContext } from 'react';
-import { Container } from './ListPokemonsStyles';
-import { Card, PikachuLoading, PaginationBar, SearchBar } from '../../components';
+import { Container, ResultHeader } from './ListPokemonsStyles';
+import { Card, PikachuLoading, PaginationBar, SearchBar, NoneFound } from '../../components';
 import { IPokemonData } from '../../global';
 import { useQuery } from '../../utils/hooks';
 
@@ -10,7 +10,8 @@ import { SearchContex } from '../../context';
 export default function ListPokemons() {
     const { getFiltered } = useContext(SearchContex);
     const pokemons = getFiltered();
-    const { getPage } = useQuery();
+    const { getPage, getQuery } = useQuery();
+    const search = getQuery('search');
     const [isLoading, setIsLoading] = useState(true);
     const perPage = 60;
 
@@ -32,6 +33,8 @@ export default function ListPokemons() {
         <>
             {isLoading && <PikachuLoading />}
             {!isLoading && <SearchBar />}
+            {search && pokemons && pokemons.length !== 0 && <ResultHeader> Mostrando resultados para ' {search} ':</ResultHeader>}
+            {pokemons && pokemons.length === 0 && <NoneFound />}
             <Container hide={isLoading}>
                 {pokemons && pokemons
                     .filter((pokemon: IPokemonData, index: number) => (index >= (page - 1) * perPage && index < page * perPage))

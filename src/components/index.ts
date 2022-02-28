@@ -7,5 +7,6 @@ import SearchBar from "./SearchBar/SearchBar";
 import SelectType from "./SelectType/SelectType";
 import Navbar from "./Navbar/Navbar";
 import SearchInput from "./SearchInput/SearchInput";
+import NoneFound from "./NoneFound/NoneFound";
 
-export { Card, Image, Loadings, PaginationBar, PikachuLoading, SearchBar, SelectType, Navbar,SearchInput };
+export { Card, Image, Loadings, PaginationBar, PikachuLoading, SearchBar, SelectType, Navbar, SearchInput, NoneFound };
