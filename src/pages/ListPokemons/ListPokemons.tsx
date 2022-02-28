@@ -1,6 +1,6 @@
-import React, { useEffect, useState, useContext } from 'react';
+import React, { useEffect, useContext } from 'react';
 import { Container, ResultHeader } from './ListPokemonsStyles';
-import { Card, PikachuLoading, PaginationBar, SearchBar, NoneFound } from '../../components';
+import { Card, PaginationBar, SearchBar, NoneFound } from '../../components';
 import { IPokemonData } from '../../global';
 import { useQuery } from '../../utils/hooks';
 

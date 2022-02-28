@@ -1,10 +1,18 @@
 import styled from "styled-components";
 import { AiOutlineClose } from 'react-icons/ai';
+
+
+
+export const Container = styled.div`
+    display: flex;
+`
+
+
 export const Input = styled.input`
     background-color: #EFEFEF;
 
-
 `
+
 
 export const CloseBtn = styled(AiOutlineClose)`
 

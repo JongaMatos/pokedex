@@ -1,6 +1,6 @@
 import React, { BaseSyntheticEvent, useEffect, useState } from 'react'
 import { useQuery } from '../../utils/hooks';
-import { Input, CloseBtn } from './SeachInputStyles'
+import { Input, CloseBtn, Container } from './SeachInputStyles'
 
 export default function SearchInput() {
 
@@ -34,12 +34,12 @@ export default function SearchInput() {
     }, [value])
 
 
-    return (<>
+    return (<Container>
         <Input placeholder='  Pesquise aqui...' onChange={handleChange} value={value || ''} />
 
         <CloseBtn onClick={handleClear} />
 
-    </>
+    </Container>
 
     )
 }

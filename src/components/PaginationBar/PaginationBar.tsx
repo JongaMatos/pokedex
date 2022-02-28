@@ -1,4 +1,4 @@
-import React, { Dispatch, SetStateAction } from 'react';
+import React from 'react';
 import { PaginationButton, PaginationContainer } from './PaginationBarStyles';
 import { range } from '../../utils';
 import { useQuery } from '../../utils/hooks';
