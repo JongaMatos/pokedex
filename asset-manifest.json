@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/pokedex/static/css/main.c37c78b6.css",
-    "main.js": "/pokedex/static/js/main.86c4f9ed.js",
+    "main.js": "/pokedex/static/js/main.969bac8a.js",
     "static/media/psyduck.svg": "/pokedex/static/media/psyduck.014296b3515cf4f71bc11e09ef199dbd.svg",
     "static/media/pikachu-home.png": "/pokedex/static/media/pikachu-home.62f719d3ed9ef601ca1d.png",
     "static/media/interrogação.png": "/pokedex/static/media/interrogação.5500ba4348d9658f98f3.png",
@@ -28,10 +28,10 @@
     "static/media/electric.svg": "/pokedex/static/media/electric.5b9316bb6f1ac3d4dfb5.svg",
     "index.html": "/pokedex/index.html",
     "main.c37c78b6.css.map": "/pokedex/static/css/main.c37c78b6.css.map",
-    "main.86c4f9ed.js.map": "/pokedex/static/js/main.86c4f9ed.js.map"
+    "main.969bac8a.js.map": "/pokedex/static/js/main.969bac8a.js.map"
   },
   "entrypoints": [
     "static/css/main.c37c78b6.css",
-    "static/js/main.86c4f9ed.js"
+    "static/js/main.969bac8a.js"
   ]
 }
