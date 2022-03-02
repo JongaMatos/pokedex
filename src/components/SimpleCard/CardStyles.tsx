@@ -19,7 +19,7 @@ export const PokemonCard = styled.div`
     border-radius: 10px;
 
     &:hover{
-        /* cursor: pointer; */
+        cursor: pointer;
     }
 
     @media (max-width: 805px)

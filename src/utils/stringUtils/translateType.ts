@@ -1,4 +1,4 @@
-export default function traslateType(type: string) {
+export default function translateType(type: string) {
 
     switch (type) {
         case 'grass'://Done

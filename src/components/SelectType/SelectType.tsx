@@ -1,6 +1,6 @@
 import React, { BaseSyntheticEvent, useEffect, useState } from 'react'
 import { SelectTypes } from './SelectTypeStyles'
-import { traslateType } from '../../utils/stringUtils'
+import { translateType } from '../../utils/stringUtils'
 import { useQuery } from '../../utils/hooks'
 const PokemonsTypes = ['all', 'normal', 'fighting', 'flying', 'poison', 'ground', 'rock', 'bug', 'ghost', 'steel', 'fire', 'water', 'grass', 'electric', 'psychic', 'ice', 'dragon', 'dark', 'fairy']
 
@@ -54,7 +54,7 @@ export default function SelectType() {
 
   return (
     <SelectTypes value={selectValue} onChange={handleSelectChange}>
-      {PokemonsTypes.map((type: string) => (<option key={type} value={type}>{traslateType(type)}</option>))}
+      {PokemonsTypes.map((type: string) => (<option key={type} value={type}>{translateType(type)}</option>))}
 
     </SelectTypes>
   )

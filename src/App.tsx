@@ -3,7 +3,7 @@ import { Switch, Route } from "react-router-dom"
 
 import { LoadPokemonContext } from './context';
 
-import { Home, ListPokemons, PokemonTypes } from "./pages";
+import { Home, ListPokemons, PokemonTypes, PokemonDetails } from "./pages";
 import { PikachuLoading } from "./components";
 import './App.css';
 
@@ -17,14 +17,19 @@ function App() {
 
 
       <Route path="/" exact render={() => <Home />} />
-      
+
       <Route path="/type" exact render={() => <PokemonTypes />} />
 
       <Route path="/pokemons/" exact render={() => {
-            if (detailedPokemons) return <ListPokemons  />
-            return <PikachuLoading />
-        }} />
-     
+        if (detailedPokemons) return <ListPokemons />
+        return <PikachuLoading />
+      }} />
+
+      <Route path='/pokemon/' exact render={() => {
+        if (detailedPokemons) return <PokemonDetails />
+        return <PikachuLoading />
+      }} />
+
 
 
     </Switch>

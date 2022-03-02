@@ -2,6 +2,6 @@ import captalize from './captalize';
 import colorByType from './colorBytype';
 import showId from './showId';
 import urlToId from './urlToId'
-import traslateType from './traslateType';
+import translateType from './translateType';
 
-export { captalize, colorByType, showId, urlToId, traslateType };
+export { captalize, colorByType, showId, urlToId, translateType };
