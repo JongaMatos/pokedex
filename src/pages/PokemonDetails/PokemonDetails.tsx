@@ -5,7 +5,8 @@ import { LoadPokemonContext } from '../../context';
 
 import { IPokemonData } from '../../global';
 
-import { BigPokemonCard } from '../../components';
+import { Container } from './DetailsStyles';
+import { BigPokemonCard, Status } from '../../components';
 
 export default function PokemonDetails() {
   const { getQuery } = useQuery();
@@ -17,14 +18,15 @@ export default function PokemonDetails() {
   if (!pokemon)
     return (
       <>
-      sem pokemon
+        sem pokemon
       </>
     )
   return (
-    <div>
+    <Container>
       <BigPokemonCard pokemon={pokemon} />
+      <Status pokemon={pokemon} />
 
-    </div>
+    </Container>
   )
 
 

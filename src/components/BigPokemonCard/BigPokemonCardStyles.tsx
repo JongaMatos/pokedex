@@ -2,14 +2,15 @@ import styled from "styled-components";
 
 export const OuterContainer = styled.div`
     background-color: ${(props) => props.color};
-    margin-left: 1rem;
-    margin-top:5rem;
+    /* margin-left: 1rem; */
+    /* margin-top:5rem; */
 
     max-width: 20rem;
-    height: 27rem;
+    /* height: 27rem; */
 
     display: flex;
     justify-content: center;
+    
 
 
     border-radius: 10px;
@@ -21,7 +22,7 @@ export const OuterContainer = styled.div`
 
 
 export const InnerContainer = styled.div`
-    width:78%;
+    width:80%;
     background-color:inherit;
 
 `
@@ -35,7 +36,12 @@ export const TopTextConatiner = styled.div`
     margin-bottom: 1rem;
     margin-left: 3px;
     margin-right: 3px;
+    
+    @media screen and (max-width:663px) {
+        margin-top: 0.8rem;
 
+        margin-bottom: 0.6rem;
+    }
 
 `
 export const Name = styled.p`
@@ -73,19 +79,31 @@ export const ImageContainer = styled.div`
     border-color: #C2A838;
 
     background-color: #EFEFEF;
+
+    @media screen and (max-width:663px) {
+        padding: 0;
+    }
 `
 
 export const TypesContainer = styled.div`
 
     background-color: #F0F0F0;
-    height: 19%;
+    /* height: 19%; */
     border-radius: 10px;
     margin-top: 1rem;
+    margin-bottom: 1rem;
+
 
     display: flex;
     flex-direction: column;
     /* justify-content: center; */
     align-items: center;
+
+    @media screen and (max-width:663px) {
+        margin-top: 0.5rem;
+        margin-bottom: 0.5rem;
+    }
+
 
 `
 export const TypeLabel = styled.p`
@@ -106,6 +124,7 @@ export const TypesInnerContainer = styled.div`
     justify-content: space-evenly;
 
     flex-wrap: wrap;
+    margin-bottom: 1rem;
 
     /* justify-content: space-between; */
 `

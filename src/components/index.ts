@@ -10,8 +10,10 @@ import SearchInput from "./SearchInput/SearchInput";
 import NoneFound from "./NoneFound/NoneFound";
 import BigPokemonCard from "./BigPokemonCard/BigPokemonCard";
 import TypeBadge from "./TypeBadge/TypeBadge";
+import Status from "./Status/Status";
 
 export {
+    Status,
     Card,
     Image,
     Loadings,

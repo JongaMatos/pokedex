@@ -1,4 +1,4 @@
-import {RouteComponentProps} from 'react-router-dom';
+import { RouteComponentProps } from 'react-router-dom';
 
 interface IPokemon {
     name: string;
@@ -11,6 +11,7 @@ interface IPokemonData {
     id: Number;
     url: string;
     types: IType[];
+    stats: IStat[];
 
 
 }
@@ -23,9 +24,16 @@ interface IType {
     };
 }
 
-interface RouteInfo {
-    page?: string;
+
+interface IStat {
+    base_stat: number;
+    stat: {
+        name: string
+    }
 }
+
+
+
 
 
 
